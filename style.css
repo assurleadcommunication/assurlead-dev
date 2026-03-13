@@ -49,20 +49,7 @@
     box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.1);
 
 
-/* Menu Mobile Amélioré */
-#mobile-menu {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: top;
-    backdrop-filter: blur(20px);
-    background-color: rgba(255, 255, 255, 0.98);
-}
 
-#mobile-menu.hidden {
-    display: flex !important;
-    opacity: 0;
-    transform: scaleY(0);
-    pointer-events: none;
-}
 
 /* Optimisations Mobile Générales */
 @media (max-width: 768px) {
