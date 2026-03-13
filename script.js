@@ -43,8 +43,16 @@ function navigateToContact() {
 // Gestion du menu mobile
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
     if (mobileMenu) {
+        const isHidden = mobileMenu.classList.contains('hidden');
         mobileMenu.classList.toggle('hidden');
+        
+        if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', isHidden ? 'x' : 'menu');
+            lucide.createIcons();
+        }
     }
 }
 
