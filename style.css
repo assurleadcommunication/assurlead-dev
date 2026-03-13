@@ -46,7 +46,8 @@
     backdrop-filter: blur(10px);
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.1)
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.1);
+}
 
 .nav-scrolled .nav-text {
     color: var(--axa-blue) !important;
