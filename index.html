@@ -66,12 +66,32 @@
             </button>
         </div>
 
+            <button class="md:hidden text-white mobile-toggle p-2" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl py-6 px-6 flex flex-col gap-4 md:hidden">
-            <button onclick="showSection('home'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-2 text-left">Accueil</button>
-            <button onclick="showSection('history'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-2 text-left">Historique</button>
-            <button onclick="showSection('simulation'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-2 text-left">Offres</button>
-            <button onclick="navigateToContact(); toggleMobileMenu()" class="bg-axa-blue text-white text-center py-4 rounded-sm font-bold">CONTACTER NOUS</button>
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl py-8 px-6 flex flex-col gap-6 md:hidden border-t border-slate-100">
+            <button onclick="showSection('home'); toggleMobileMenu()" class="text-axa-blue font-bold text-xl flex items-center justify-between group">
+                <span>Accueil</span>
+                <i data-lucide="chevron-right" class="opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <button onclick="showSection('history'); toggleMobileMenu()" class="text-axa-blue font-bold text-xl flex items-center justify-between group">
+                <span>Historique</span>
+                <i data-lucide="chevron-right" class="opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <button onclick="showSection('simulation'); toggleMobileMenu()" class="text-axa-blue font-bold text-xl flex items-center justify-between group">
+                <span>Offres</span>
+                <i data-lucide="chevron-right" class="opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </button>
+            <button onclick="navigateToContact(); toggleMobileMenu()" class="bg-axa-red text-white text-center py-4 rounded-sm font-bold text-lg shadow-xl shadow-red-500/20 mt-4">CONTACTER NOUS</button>
+            
+            <div class="flex justify-center gap-6 mt-8 pt-8 border-t border-slate-100">
+                <a href="#" class="text-axa-blue opacity-60 hover:opacity-100 transition-opacity"><i data-lucide="facebook"></i></a>
+                <a href="#" class="text-axa-blue opacity-60 hover:opacity-100 transition-opacity"><i data-lucide="instagram"></i></a>
+                <a href="#" class="text-axa-blue opacity-60 hover:opacity-100 transition-opacity"><i data-lucide="linkedin"></i></a>
+            </div>
         </div>
     </nav>
 
