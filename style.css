@@ -46,39 +46,7 @@
     backdrop-filter: blur(10px);
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.1);
-
-
-
-
-/* Optimisations Mobile Générales */
-@media (max-width: 768px) {
-    .hero-text {
-        text-shadow: 0 2px 10px rgba(0, 0, 143, 0.3);
-    }
-    
-    section {
-        padding-top: 4rem !important;
-        padding-bottom: 4rem !important;
-        padding-left: 1.25rem !important;
-        padding-right: 1.25rem !important;
-    }
-    
-    h1 { font-size: 2.5rem !important; }
-    h2 { font-size: 1.875rem !important; }
-    
-    .grid-mobile-tight {
-        gap: 1rem !important;
-    }
-}
-
-/* Amélioration des boutons sur mobile */
-@media (max-width: 640px) {
-    .btn-mobile-full {
-        width: 100%;
-        justify-content: center;
-    }
-}
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.1)
 
 .nav-scrolled .nav-text {
     color: var(--axa-blue) !important;
