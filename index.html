@@ -303,30 +303,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-<!-- Formulaire de contact --> 
-        <div class="lg:col-span-3"> <form  action="https://formspree.io/f/xkoqpejn" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl space-y-6"> 
-            <div class="grid md:grid-cols-2 gap-6"> <!-- Nom --> 
-                <div class="space-y-2"> 
-                    <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Nom Complet</label> 
-                    <input type="text" name="nom" placeholder="Votre nom"> class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all" required> 
-                </div> <!-- Téléphone Form --> <div class="space-y-2"> 
-                    <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Téléphone</label> 
-                    <input type="tel" name="telephone" placeholder="Votre numéro" class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all" required> </div>
-            </div> <!-- Type d'assurance --> <div class="space-y-2"> 
-                <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Type d'assurance</label> 
-                <select class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all bg-white"> 
-                    <option>Automobile</option> 
-                    <option>Habitation</option> 
-                    <option>Santé</option> 
-                    <option>Professionnelle</option>
-                    <option>Autre</option> </select> 
-            </div> <!-- Message --> 
-            <div class="space-y-2"> 
-                <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Message (Optionnel)</label> 
-                <textarea name="message"> 
-                </textarea><textarea rows="4" placeholder="Comment pouvons-nous vous aider ?" class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"></textarea> 
-            </div> <!-- Bouton Envoyer --> <button type="submit" class="w-full bg-axa-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-500/20"> Envoyer ma demande </button> </form> </div>
+<!-- Formulaire de contact -->
+<div class="lg:col-span-3">
+  <form action="https://formspree.io/f/xkoqpejn" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl space-y-6">
+    
+    <!-- Nom + Téléphone -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Nom -->
+      <div class="space-y-2">
+        <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
+          Nom Complet
+        </label>
+        <input 
+          type="text" 
+          name="nom" 
+          placeholder="Votre nom"
+          class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"
+          required
+        >
+      </div>
+
+      <!-- Téléphone -->
+      <div class="space-y-2">
+        <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
+          Téléphone
+        </label>
+        <input 
+          type="tel" 
+          name="telephone" 
+          placeholder="Votre numéro"
+          class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"
+          required
+        >
+      </div>
+
     </div>
+
+    <!-- Type d'assurance -->
+    <div class="space-y-2">
+      <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
+        Type d'assurance
+      </label>
+      <select 
+        name="assurance"
+        class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all bg-white"
+      >
+        <option>Automobile</option>
+        <option>Habitation</option>
+        <option>Santé</option>
+        <option>Professionnelle</option>
+        <option>Autre</option>
+      </select>
+    </div>
+
+    <!-- Message -->
+    <div class="space-y-2">
+      <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
+        Message (Optionnel)
+      </label>
+      <textarea 
+        name="message"
+        rows="4" 
+        placeholder="Comment pouvons-nous vous aider ?"
+        class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"
+      ></textarea>
+    </div>
+
+    <!-- Bouton -->
+    <button 
+      type="submit" 
+      class="w-full bg-axa-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-500/20"
+    >
+      Envoyer ma demande
+    </button>
+
+  </form>
+</div>
+    
             <!-- Map Section -->
             <section class="h-[450px] w-full bg-slate-200 grayscale hover:grayscale-0 transition-all duration-700">
                 <iframe 
