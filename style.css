@@ -1,96 +1,159 @@
-/* script.js - Version Finale Complète */
+/* style.css - Version Finale Complète */
 
-// Gestion du défilement de la barre de navigation
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('nav-scrolled');
-    } else {
-        navbar.classList.remove('nav-scrolled');
-    }
-});
-
-// Gestion des sections de la page
-function showSection(sectionId) {
-    // Masquer toutes les sections
-    const sections = document.querySelectorAll('.page-section');
-    sections.forEach(section => {
-        section.classList.add('hidden');
-    });
-
-    // Afficher la section demandée
-    const targetSection = document.getElementById(`section-${sectionId}`);
-    if (targetSection) {
-        targetSection.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Mettre à jour l'URL (facultatif)
-    // history.pushState(null, null, `#${sectionId}`);
+/* Variables de marque AXA */
+:root {
+    --axa-blue: #00008F;
+    --axa-red: #FF0000;
+    --white: #FFFFFF;
+    --slate-50: #F8FAFC;
 }
 
-// Navigation vers le formulaire de contact
-function navigateToContact() {
-    showSection('home');
-    setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 100);
+/* Motif AXA - Fond Blanc avec motif "AXA" très subtil et plus grand */
+.zellig-pattern {
+    background-color: var(--white);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-weight='900' font-size='50' fill='%2300008f' fill-opacity='0.04'%3EAXA%3C/text%3E%3C/svg%3E");
 }
 
-// Gestion du menu mobile
-function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const toggleBtn = document.querySelector('.mobile-toggle i');
+/* Bordure décorative Zellig (utilisée pour séparer les sections) */
+.zellig-border {
+    position: relative;
+}
+
+.zellig-border::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 8l20-8 20 8z' fill='%2300008f' fill-opacity='0.05'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+}
+
+/* Animations de transition de page */
+.page-section {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Styles de la barre de navigation au défilement */
+.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(15px);
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 143, 0.15);
+}
+
+.nav-scrolled .nav-text {
+    color: var(--axa-blue) !important;
+}
+
+.nav-scrolled .nav-link {
+    color: var(--axa-blue) !important;
+}
+
+.nav-scrolled .mobile-toggle {
+    color: var(--axa-blue) !important;
+}
+
+/* Menu Mobile - Animation */
+#mobile-menu {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top;
+    opacity: 0;
+    transform: scaleY(0);
+    display: flex; /* Toujours flex mais caché par scale/opacity */
+    pointer-events: none;
+}
+
+#mobile-menu.active {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+}
+
+/* Effet de survol des liens de navigation */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--axa-red);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Optimisation des espacements sur mobile */
+@media (max-width: 768px) {
+    section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
     
-    if (mobileMenu) {
-        mobileMenu.classList.toggle('active');
-        
-        // Changer l'icône
-        if (toggleBtn) {
-            const isMenu = toggleBtn.getAttribute('data-lucide') === 'menu';
-            toggleBtn.setAttribute('data-lucide', isMenu ? 'x' : 'menu');
-            lucide.createIcons();
-        }
+    .hero-text-shadow {
+        text-shadow: 0 2px 15px rgba(0, 0, 143, 0.4);
+    }
+
+    #map-section {
+        height: 300px !important;
     }
 }
 
-// Gestion du popup de rappel
-function closePopup() {
-    const popup = document.getElementById('cta-popup');
-    if (popup) {
-        popup.classList.add('hidden');
-    }
+/* Personnalisation de la barre de défilement */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-// Afficher le popup après 15 secondes (une seule fois)
-let popupShown = false;
-window.addEventListener('scroll', () => {
-    if (!popupShown && window.scrollY > 1000) {
-        const popup = document.getElementById('cta-popup');
-        if (popup) {
-            popup.classList.remove('hidden');
-            popupShown = true;
-        }
-    }
-});
+::-webkit-scrollbar-track {
+    background: var(--slate-50);
+}
 
-// Initialisation des icônes Lucide (déjà appelé dans l'HTML mais par sécurité)
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 5px;
+}
 
-    // Slider Hero
-    const slides = document.querySelectorAll('.hero-slide');
-    if (slides.length > 0) {
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
-        }, 5000);
-    }
-});
+::-webkit-scrollbar-thumb:hover {
+    background: var(--axa-blue);
+}
+
+/* Utilitaires de texte */
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Effet de survol des boutons */
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-effect::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    transition: transform 0.6s ease;
+}
+
+.btn-hover-effect:hover::after {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
