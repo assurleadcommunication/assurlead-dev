@@ -1,13 +1,6 @@
-<index.html>
+<!index.html>
 <html lang="fr">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NW52SPSQ');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assurances ELOMRANI - Agent AXA Casablanca</title>
@@ -27,6 +20,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     colors: {
                         'axa-blue': '#00008F',
                         'axa-red': '#FF0000',
+                        'axa-purple': '#5E5EAB',
+                        'axa-yellow': '#FFC107',
+                        'axa-green': '#76D275',
                     }
                 }
             }
@@ -34,35 +30,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
 </head>
 <body class="font-sans text-slate-900 bg-white selection:bg-axa-blue selection:text-white">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW52SPSQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
-        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center relative">
-            <button onclick="showSection('home')" class="flex items-center gap-3">
-                <div class="relative group">
-                    <img src="ae-logo.svg">
-  <path d="M85 45 L125 150 Q130 160 115 160 L100 160 L70 45 L85 45Z" fill="#E2231A/>
-  <g>
-    <path d="M100 45 L160 45 Q170 45 170 55 L170 65 Q170 75 160 75 L110 75 L100 45Z" fill="#2B458C"/>
-    <path d="M115 85 L155 85 Q165 85 165 95 L165 105 Q165 115 155 115 L125 115 L115 85Z" fill="#2B458C"/>
-    <path d="M130 125 L160 125 Q170 125 170 135 L170 145 Q170 155 160 155 L140 155 L130 125Z" fill="#2B458C"/>
-  </g>
 
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-4 md:py-6">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center relative">
+            <button onclick="showSection('home')" class="flex items-center gap-2 md:gap-3">
+                <div class="relative group">
+                    <img src="logo-elomrani.png" alt="Assurances ELOMRANI" class="h-10 md:h-14 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
                     <div class="absolute -bottom-4 left-0 text-[8px] font-black text-axa-blue opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">NOW YOU CAN</div>
                 </div>
-                <div class="flex flex-col leading-none text-left text-white nav-text">
-                    <span class="font-bold text-lg uppercase tracking-wider">Assurances ELOMRANI</span>
-                    <span class="text-[10px] font-medium opacity-80 uppercase">AGENT GÉNÉRALE</span>
+                <div class="flex flex-col leading-none text-left text-white nav-text transition-colors duration-300">
+                    <span class="font-bold text-base md:text-lg uppercase tracking-wider">Assurances ELOMRANI</span>
+                    <span class="text-[8px] md:text-[10px] font-medium opacity-80 uppercase">AGENT GÉNÉRALE</span>
                 </div>
             </button>
 
             <div class="hidden md:flex items-center gap-8">
                 <button onclick="showSection('home')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Accueil</button>
-                <button onclick="showSection('history')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Histoire AXA </button>
+                <button onclick="showSection('history')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Historique</button>
                 <button onclick="showSection('simulation')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Offres</button>
                 <button onclick="navigateToContact()" class="bg-axa-red text-white px-6 py-2.5 rounded-sm font-bold text-sm hover:bg-red-700 transition-all shadow-lg">CONTACTER NOUS</button>
                 
@@ -72,37 +57,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
 
-            <button class="md:hidden text-white mobile-toggle" onclick="toggleMobileMenu()">
+            <button class="md:hidden text-white mobile-toggle transition-colors duration-300" onclick="toggleMobileMenu()">
                 <i data-lucide="menu"></i>
             </button>
         </div>
 
-            <button class="md:hidden text-white mobile-toggle p-2" onclick="toggleMobileMenu()">
-                <i data-lucide="menu" id="menu-icon"></i>
-            </button>
-        </div>
-
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl py-8 px-6 flex flex-col gap-6 md:hidden border-t border-slate-100">
-            <button onclick="showSection('home'); toggleMobileMenu()" class="text-axa-blue font-bold text-xl flex items-center justify-between group">
-                <span>Accueil</span>
-                <i data-lucide="chevron-right" class="opacity-0 group-hover:opacity-100 transition-opacity"></i>
-            </button>
-            <button onclick="showSection('history'); toggleMobileMenu()" class="text-axa-blue font-bold text-xl flex items-center justify-between group">
-                <span>Historique</span>
-                <i data-lucide="chevron-right" class="opacity-0 group-hover:opacity-100 transition-opacity"></i>
-            </button>
-            <button onclick="showSection('simulation'); toggleMobileMenu()" class="text-axa-blue font-bold text-xl flex items-center justify-between group">
-                <span>Offres</span>
-                <i data-lucide="chevron-right" class="opacity-0 group-hover:opacity-100 transition-opacity"></i>
-            </button>
-            <button onclick="navigateToContact(); toggleMobileMenu()" class="bg-axa-red text-white text-center py-4 rounded-sm font-bold text-lg shadow-xl shadow-red-500/20 mt-4">CONTACTER NOUS</button>
-            
-            <div class="flex justify-center gap-6 mt-8 pt-8 border-t border-slate-100">
-                <a href="#" class="text-axa-blue opacity-60 hover:opacity-100 transition-opacity"><i data-lucide="facebook"></i></a>
-                <a href="#" class="text-axa-blue opacity-60 hover:opacity-100 transition-opacity"><i data-lucide="instagram"></i></a>
-                <a href="#" class="text-axa-blue opacity-60 hover:opacity-100 transition-opacity"><i data-lucide="linkedin"></i></a>
-            </div>
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-2xl py-6 px-6 flex flex-col gap-4 md:hidden border-t border-slate-100">
+            <button onclick="showSection('home'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-3 text-left flex items-center justify-between">Accueil <i data-lucide="chevron-right" class="w-5 h-5 opacity-50"></i></button>
+            <button onclick="showSection('history'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-3 text-left flex items-center justify-between">Historique <i data-lucide="chevron-right" class="w-5 h-5 opacity-50"></i></button>
+            <button onclick="showSection('simulation'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-3 text-left flex items-center justify-between">Offres <i data-lucide="chevron-right" class="w-5 h-5 opacity-50"></i></button>
+            <button onclick="navigateToContact(); toggleMobileMenu()" class="bg-axa-red text-white text-center py-4 rounded-sm font-bold shadow-lg mt-2">CONTACTER NOUS</button>
         </div>
     </nav>
 
@@ -110,7 +75,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="main-content">
         <!-- Home Section -->
         <div id="section-home" class="page-section">
-             <!-- Hero -->
+            <!-- Hero -->
             <section class="relative h-screen flex items-center overflow-hidden">
                 <!-- Slider Container -->
                 <div class="absolute inset-0 z-0">
@@ -137,16 +102,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <i data-lucide="shield-check" class="text-axa-red w-4 h-4"></i>
                             Votre partenaire de confiance à Casablanca
                         </div>
-                        <h1 class="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-6">Votre assurance, <br><span class="text-white/80">notre engagement.</span></h1>
+                        <h1 class="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-6 hero-text-shadow">Votre assurance, <br><span class="text-white/80">notre engagement.</span></h1>
                         <p class="text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed">Protégez ce qui compte vraiment pour vous avec l'expertise d'un agent général AXA dédié.</p>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#contact" class="bg-axa-red text-white px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-red-700 transition-all shadow-xl">Obtenir un devis gratuit <i data-lucide="arrow-right"></i></a>
-                            <a href="tel:0522665908" class="bg-white text-axa-blue px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-all shadow-xl"><i data-lucide="phone"></i> Être rappelé</a>
+                            <a href="#contact" class="btn-hover-effect bg-axa-red text-white px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-red-700 transition-all shadow-xl">Obtenir un devis gratuit <i data-lucide="arrow-right"></i></a>
+                            <a href="tel:0522665908" class="btn-hover-effect bg-white text-axa-blue px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-all shadow-xl"><i data-lucide="phone"></i> Être rappelé</a>
                         </div>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Agent -->
             <section class="py-20 px-6 md:px-12 lg:px-24 bg-slate-50 relative overflow-hidden zellig-pattern">
                 <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -159,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div>
                         <span class="text-axa-red font-bold uppercase tracking-widest text-sm mb-4 block">L'expertise à votre service</span>
-                        <h2 class="text-4xl font-extrabold text-axa-blue mb-6">Mme. FATIMA EL OMRANI <br><span class="text-slate-500 text-2xl font-semibold">Agent Général AXA</span></h2>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-axa-blue mb-6">Mme. FATIMA EL OMRANI <br><span class="text-slate-500 text-xl md:text-2xl font-semibold">Agent Général AXA</span></h2>
                         <p class="text-lg text-slate-600 mb-8 leading-relaxed">Avec plus de 15 ans d'expérience dans le secteur des assurances à Casablanca, notre agence s'engage à vous offrir un conseil personnalisé et une réactivité exemplaire.</p>
                         <div class="space-y-4 mb-10">
                             <div class="flex items-center gap-3"><i data-lucide="check-circle-2" class="text-axa-red"></i><span class="font-semibold text-slate-700">Proximité et écoute active</span></div>
@@ -176,7 +141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <section id="services" class="py-20 px-6 md:px-12 lg:px-24 bg-white zellig-pattern">
                 <div class="max-w-7xl mx-auto text-center mb-16">
                     <span class="text-axa-red font-bold uppercase tracking-widest text-sm mb-4 block">Nos Solutions</span>
-                    <h2 class="text-4xl font-extrabold text-axa-blue mb-4">Une protection sur mesure pour chaque étape de votre vie</h2>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-axa-blue mb-4">Une protection sur mesure pour chaque étape de votre vie</h2>
                 </div>
                 <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="p-8 rounded-xl border border-slate-100 hover:border-axa-blue/20 hover:shadow-2xl transition-all bg-white group">
@@ -223,7 +188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
                     <div>
                         <span class="text-axa-red font-bold uppercase tracking-widest text-sm mb-4 block">Pourquoi nous choisir ?</span>
-                        <h2 class="text-4xl font-extrabold mb-8 leading-tight">L'expertise d'un grand groupe mondial, <br>la proximité d'un agent local.</h2>
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-8 leading-tight">L'expertise d'un grand groupe mondial, <br>la proximité d'un agent local.</h2>
                         <div class="grid sm:grid-cols-2 gap-8">
                             <div class="p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10">
                                 <h3 class="text-xl font-bold mb-2 flex items-center gap-2"><div class="w-2 h-2 bg-axa-red rounded-full"></div>Conseils Personnalisés</h3>
@@ -259,131 +224,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <!-- Section Contact -->
-<section id="contact" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-16">
-        <!-- Informations de contact -->
-        <div class="lg:col-span-2">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-axa-blue mb-8">Prêt à être mieux protégé ?</h2>
-            <p class="text-slate-600 mb-10 text-lg">Contactez-nous pour une étude personnalisée de vos besoins ou rendez-vous directement en agence.</p>
-            
-            <div class="space-y-8">
-                <!-- Adresse -->
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-axa-blue shadow-md">
-                        <i data-lucide="map-pin"></i>
+            <!-- Contact -->
+            <section id="contact" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-50">
+                <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-16">
+                    <div class="lg:col-span-2">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-axa-blue mb-8">Prêt à être mieux protégé ?</h2>
+                        <p class="text-slate-600 mb-10 text-lg">Contactez-nous pour une étude personnalisée de vos besoins ou rendez-vous directement en agence.</p>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-axa-blue shadow-md"><i data-lucide="map-pin"></i></div>
+                                <div>
+                                    <p class="font-bold text-axa-blue">Notre Adresse</p>
+                                    <p class="text-slate-500 text-sm">108 Bd Ali Yaâta, Casablanca 20250</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-axa-blue shadow-md"><i data-lucide="phone"></i></div>
+                                <div>
+                                    <p class="font-bold text-axa-blue">Téléphone</p>
+                                    <p class="text-slate-500 text-sm">05 22 66 59 08</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-axa-blue shadow-md"><i data-lucide="mail"></i></div>
+                                <div>
+                                    <p class="font-bold text-axa-blue">Email</p>
+                                    <p class="text-slate-500 text-sm">contact@axa-elomrani.ma</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <p class="font-bold text-axa-blue">Notre Adresse</p>
-                        <p class="text-slate-500 text-sm">Bd Ali Yaâta TR2, GH 3. Imm 17 Mag N°108 RDC Res City Ain Sebaa Casablanca 20250</p>
+                    <div class="lg:col-span-3">
+                        <form class="bg-white p-8 rounded-2xl shadow-2xl space-y-6" onsubmit="event.preventDefault(); alert('Merci ! Votre demande a été envoyée.')">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Nom Complet</label>
+                                    <input type="text" placeholder="Votre nom" class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all" required>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Téléphone</label>
+                                    <input type="tel" placeholder="Votre numéro" class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all" required>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Type d'assurance</label>
+                                <select class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all bg-white">
+                                    <option>Automobile</option>
+                                    <option>Habitation</option>
+                                    <option>Santé</option>
+                                    <option>Professionnelle</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">Message (Optionnel)</label>
+                                <textarea rows="4" placeholder="Comment pouvons-nous vous aider ?" class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-axa-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-500/20">Envoyer ma demande</button>
+                        </form>
                     </div>
                 </div>
-                
-                <!-- Téléphone -->
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-axa-blue shadow-md">
-                        <i data-lucide="phone"></i>
-                    </div>
-                    <div>
-                        <p class="font-bold text-axa-blue">Téléphone</p>
-                        <p class="text-slate-500 text-sm">05 22 66 59 08</p>
-                    </div>
-                </div>
-                
-                <!-- Email -->
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-axa-blue shadow-md">
-                        <i data-lucide="mail"></i>
-                    </div>
-                    <div>
-                        <p class="font-bold text-axa-blue">Email</p>
-                        <p class="text-slate-500 text-sm">assurances.elomrani@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<!-- Formulaire de contact -->
-<div class="lg:col-span-3">
-  <form action="https://formspree.io/f/myknbawj" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl space-y-6">
-    
-    <!-- Nom + Téléphone -->
-    <div class="grid md:grid-cols-2 gap-6">
-
-      <!-- Nom -->
-      <div class="space-y-2">
-        <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
-          Nom Complet
-        </label>
-        <input 
-          type="text" 
-          name="nom" 
-          placeholder="Votre nom"
-          class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"
-          required
-        >
-      </div>
-
-      <!-- Téléphone -->
-      <div class="space-y-2">
-        <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
-          Téléphone
-        </label>
-        <input 
-          type="tel" 
-          name="telephone" 
-          placeholder="Votre numéro"
-          class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"
-          required
-        >
-      </div>
-
-    </div>
-
-    <!-- Type d'assurance -->
-    <div class="space-y-2">
-      <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
-        Type d'assurance
-      </label>
-      <select 
-        name="assurance"
-        class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all bg-white"
-      >
-        <option>Automobile</option>
-        <option>Habitation</option>
-        <option>Santé</option>
-        <option>Professionnelle</option>
-        <option>Autre</option>
-      </select>
-    </div>
-
-    <!-- Message -->
-    <div class="space-y-2">
-      <label class="text-sm font-bold text-axa-blue uppercase tracking-wider">
-        Message (Optionnel)
-      </label>
-      <textarea 
-        name="message"
-        rows="4" 
-        placeholder="Comment pouvons-nous vous aider ?"
-        class="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-axa-blue transition-all"
-      ></textarea>
-    </div>
-
-    <!-- Bouton -->
-    <button 
-      type="submit" 
-      class="w-full bg-axa-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-500/20"
-    >
-      Envoyer ma demande
-    </button>
-
-  </form>
-</div>
-    </section>
+            </section>
 
             <!-- Map Section -->
-            <section class="h-[450px] w-full bg-slate-200 grayscale hover:grayscale-0 transition-all duration-700">
+            <section id="map-section" class="h-[450px] w-full bg-slate-200 grayscale hover:grayscale-0 transition-all duration-700">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.823932782782!2d-7.5435208!3d33.5976608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd00315039a9%3A0xbd3f59f03e9d1a66!2sAssurances%20ELOMRANI!5e0!3m2!1sfr!2sma!4v1710000000000!5m2!1sfr!2sma" 
                     width="100%" 
@@ -401,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <span class="text-axa-red font-bold uppercase tracking-widest text-sm mb-4 block">Notre Histoire</span>
-                    <h1 class="text-5xl font-extrabold text-axa-blue mb-6">Plus de deux siècles d'engagement et d'innovation</h1>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-axa-blue mb-6">Plus de deux siècles d'engagement et d'innovation</h1>
                     <p class="text-slate-600 max-w-2xl mx-auto text-lg">Découvrez les jalons qui ont façonné le leader mondial de l'assurance.</p>
                 </div>
                 
@@ -465,7 +369,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <span class="text-axa-red font-bold uppercase tracking-widest text-sm mb-4 block">Nos Offres</span>
-                    <h1 class="text-5xl font-extrabold text-axa-blue mb-6">Des solutions de protection adaptées à vos besoins</h1>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-axa-blue mb-6">Des solutions de protection adaptées à vos besoins</h1>
                     <p class="text-slate-600 max-w-2xl mx-auto text-lg">Découvrez nos offres exclusives conçues pour vous offrir la meilleure couverture au meilleur prix.</p>
                 </div>
                 
@@ -539,21 +443,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
 
-                <!-- Call to action -->
-                <div class="mt-20 bg-axa-blue rounded-3xl p-12 text-center text-white relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-                    <h2 class="text-3xl font-bold mb-6 relative z-10">Vous ne trouvez pas ce que vous cherchez ?</h2>
-                    <p class="text-white/70 mb-10 max-w-2xl mx-auto relative z-10">Nos conseillers sont à votre disposition pour créer une offre 100% personnalisée selon votre situation unique.</p>
-                    <button onclick="navigateToContact()" class="bg-axa-red text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition-all relative z-10">Contacter un conseiller expert</button>
-                </div> 
-               <
-                <div cl </div>
-                <p claass="flex gap-4">
-                    <a href="https://www.facebook.com/share/1FaYhykQnE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="facebook" size="18"></i></a>
-                    <a href="https://www.instagram.com/assurances.elomrani?igsh=MW5uZWJsdDMydjB0NA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="instagram" size="18"></i></a>
-                    <a href="https://www.linkedin.com/in/fatima-elomrani-39b7a839b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="linkedin" size="18"></i></a>
+                <!-- Customer Service Section (from image) -->
+                <div class="mt-12 md:mt-20 py-12 px-6 bg-slate-50 rounded-3xl">
+                    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                        <!-- Illustration -->
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <div class="relative w-64 h-64 md:w-80 md:h-80 bg-blue-100/50 rounded-full flex items-center justify-center overflow-hidden shadow-inner">
+                                <img src="https://illustrations.popsy.co/blue/customer-support.svg" alt="Support" class="w-4/5 h-4/5 object-contain">
+                            </div>
+                        </div>
+                        <!-- Card -->
+                        <div class="w-full md:w-1/2 relative">
+                            <div class="bg-axa-purple rounded-[2.5rem] p-8 md:p-12 text-center text-white shadow-2xl relative overflow-visible">
+                                <!-- Phone Icon with Check -->
+                                <div class="relative inline-block mb-8">
+                                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg transform -rotate-6">
+                                        <i data-lucide="phone" class="w-12 h-12 text-axa-purple fill-axa-purple"></i>
+                                    </div>
+                                    <div class="absolute -top-3 -right-3 bg-axa-green rounded-full p-1.5 border-4 border-axa-purple shadow-md">
+                                        <i data-lucide="check" class="w-5 h-5 text-white stroke-[4px]"></i>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-xl md:text-2xl font-bold leading-tight mb-10 text-balance">
+                                    CONTACTER NOUS POUR PLUS D'INFORMATION
+                                </h3>
+                                
+                                <div class="bg-white text-axa-purple inline-block px-12 py-4 rounded-2xl text-4xl md:text-5xl font-black tracking-tighter shadow-xl transform hover:scale-105 transition-transform cursor-default">
+                                    29 92
+                                </div>
+                                
+                                <!-- Yellow Floating Icon -->
+                                <div class="absolute -bottom-8 -right-4 md:-right-8 w-20 h-20 bg-axa-yellow rounded-full border-4 border-white shadow-2xl flex items-center justify-center transform hover:rotate-12 transition-transform">
+                                    <i data-lucide="headphones" class="text-axa-blue w-10 h-10"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -564,14 +491,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-3 mb-8">
                     <div class="relative group">
-                        <img src="ae-logo.svg" alt="AXA" class="h-15 w-auto">
+                        <img src="logo-elomrani.png" alt="Assurances ELOMRANI" class="h-12 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
                     </div>
                     <div class="flex flex-col leading-none">
                         <span class="font-bold text-lg uppercase tracking-wider">Assurances ELOMRANI</span>
                         <span class="text-[10px] font-medium opacity-60 uppercase">AGENT GÉNÉRALE</span>
                     </div>
-                    </div>
-                 <p class="text-white/60 max-w-md mb-8 leading-relaxed">Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. Nous vous accompagnons dans tous vos projets de protection et d'épargne.</p>
+                </div>
+                <p class="text-white/60 max-w-md mb-8 leading-relaxed">Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. Nous vous accompagnons dans tous vos projets de protection et d'épargne.</p>
                 <div class="flex gap-4">
                     <a href="https://www.facebook.com/share/1FaYhykQnE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="facebook" size="18"></i></a>
                     <a href="https://www.instagram.com/assurances.elomrani?igsh=MW5uZWJsdDMydjB0NA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="instagram" size="18"></i></a>
@@ -596,7 +523,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 flex flex-col md:row justify-between items-center gap-4 text-white/40 text-sm">
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm">
             <p>© 2026 Assurances ELOMRANI - Agent Général AXA. Tous droits réservés.</p>
             <div class="flex gap-8">
                 <a href="#" class="hover:text-white transition-all">Mentions Légales</a>
@@ -608,7 +535,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Popup -->
     <div id="cta-popup" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6">
         <div class="absolute inset-0 bg-axa-blue/60 backdrop-blur-sm" onclick="closePopup()"></div>
-        <div class="relative bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden p-12 text-center zellig-pattern">
+        <div class="relative bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden p-6 md:p-12 text-center zellig-pattern">
             <button onclick="closePopup()" class="absolute top-6 right-6 text-slate-400 hover:text-axa-blue transition-all"><i data-lucide="x"></i></button>
             <div class="w-20 h-20 bg-axa-red/10 text-axa-red rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner"><i data-lucide="phone" size="40"></i></div>
             <h2 class="text-3xl font-extrabold text-axa-blue mb-4">Besoin d'un conseil immédiat ?</h2>
