@@ -10,7 +10,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -21,6 +20,9 @@
                     colors: {
                         'axa-blue': '#00008F',
                         'axa-red': '#FF0000',
+                        'axa-purple': '#5E5EAB',
+                        'axa-yellow': '#FFC107',
+                        'axa-green': '#76D275',
                     }
                 }
             }
@@ -34,10 +36,10 @@
         <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center relative">
             <button onclick="showSection('home')" class="flex items-center gap-2 md:gap-3">
                 <div class="relative group">
-                    <img src= "ae-logo.svg" alt="Assurances ELOMRANI" class="h-155 md:h-16 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
-                    <div class="absolute -bottom-4 left-0 text-[8px] font-black text-axa-blue opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"></div>
+                    <img src="logo-elomrani.png" alt="Assurances ELOMRANI" class="h-10 md:h-14 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
+                    <div class="absolute -bottom-4 left-0 text-[8px] font-black text-axa-blue opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">NOW YOU CAN</div>
                 </div>
-                <div class="flex flex-col leading-none text-left text-white nav-text">
+                <div class="flex flex-col leading-none text-left text-white nav-text transition-colors duration-300">
                     <span class="font-bold text-base md:text-lg uppercase tracking-wider">Assurances ELOMRANI</span>
                     <span class="text-[8px] md:text-[10px] font-medium opacity-80 uppercase">AGENT GÉNÉRALE</span>
                 </div>
@@ -45,7 +47,7 @@
 
             <div class="hidden md:flex items-center gap-8">
                 <button onclick="showSection('home')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Accueil</button>
-                <button onclick="showSection('history')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Histoire AXA</button>
+                <button onclick="showSection('history')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Historique</button>
                 <button onclick="showSection('simulation')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Offres</button>
                 <button onclick="navigateToContact()" class="bg-axa-red text-white px-6 py-2.5 rounded-sm font-bold text-sm hover:bg-red-700 transition-all shadow-lg">CONTACTER NOUS</button>
                 
@@ -55,17 +57,17 @@
                 </div>
             </div>
 
-            <button class="md:hidden text-white mobile-toggle" onclick="toggleMobileMenu()">
+            <button class="md:hidden text-white mobile-toggle transition-colors duration-300" onclick="toggleMobileMenu()">
                 <i data-lucide="menu"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl py-6 px-6 flex flex-col gap-4 md:hidden">
-            <button onclick="showSection('home'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-2 text-left">Accueil</button>
-            <button onclick="showSection('history'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-2 text-left">Historique</button>
-            <button onclick="showSection('simulation'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-2 text-left">Offres</button>
-            <button onclick="navigateToContact(); toggleMobileMenu()" class="bg-axa-blue text-white text-center py-4 rounded-sm font-bold">CONTACTER NOUS</button>
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-2xl py-6 px-6 flex flex-col gap-4 md:hidden border-t border-slate-100">
+            <button onclick="showSection('home'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-3 text-left flex items-center justify-between">Accueil <i data-lucide="chevron-right" class="w-5 h-5 opacity-50"></i></button>
+            <button onclick="showSection('history'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-3 text-left flex items-center justify-between">Historique <i data-lucide="chevron-right" class="w-5 h-5 opacity-50"></i></button>
+            <button onclick="showSection('simulation'); toggleMobileMenu()" class="text-axa-blue font-bold text-lg border-b border-slate-100 pb-3 text-left flex items-center justify-between">Offres <i data-lucide="chevron-right" class="w-5 h-5 opacity-50"></i></button>
+            <button onclick="navigateToContact(); toggleMobileMenu()" class="bg-axa-red text-white text-center py-4 rounded-sm font-bold shadow-lg mt-2">CONTACTER NOUS</button>
         </div>
     </nav>
 
@@ -100,11 +102,11 @@
                             <i data-lucide="shield-check" class="text-axa-red w-4 h-4"></i>
                             Votre partenaire de confiance à Casablanca
                         </div>
-                        <h1 class="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-6">Votre assurance, <br><span class="text-white/80">notre engagement.</span></h1>
+                        <h1 class="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-6 hero-text-shadow">Votre assurance, <br><span class="text-white/80">notre engagement.</span></h1>
                         <p class="text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed">Protégez ce qui compte vraiment pour vous avec l'expertise d'un agent général AXA dédié.</p>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#contact" class="bg-axa-red text-white px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-red-700 transition-all shadow-xl">Obtenir un devis gratuit <i data-lucide="arrow-right"></i></a>
-                            <a href="tel:0522665908" class="bg-white text-axa-blue px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-all shadow-xl"><i data-lucide="phone"></i> Être rappelé</a>
+                            <a href="#contact" class="btn-hover-effect bg-axa-red text-white px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-red-700 transition-all shadow-xl">Obtenir un devis gratuit <i data-lucide="arrow-right"></i></a>
+                            <a href="tel:0522665908" class="btn-hover-effect bg-white text-axa-blue px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-all shadow-xl"><i data-lucide="phone"></i> Être rappelé</a>
                         </div>
                     </div>
                 </div>
@@ -285,7 +287,7 @@
             </section>
 
             <!-- Map Section -->
-            <section class="h-[450px] w-full bg-slate-200 grayscale hover:grayscale-0 transition-all duration-700">
+            <section id="map-section" class="h-[450px] w-full bg-slate-200 grayscale hover:grayscale-0 transition-all duration-700">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.823932782782!2d-7.5435208!3d33.5976608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd00315039a9%3A0xbd3f59f03e9d1a66!2sAssurances%20ELOMRANI!5e0!3m2!1sfr!2sma!4v1710000000000!5m2!1sfr!2sma" 
                     width="100%" 
@@ -441,12 +443,43 @@
                     </div>
                 </div>
 
-                <!-- Call to action -->
-                <div class="mt-20 bg-axa-blue rounded-3xl p-12 text-center text-white relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-                    <h2 class="text-3xl font-bold mb-6 relative z-10">Vous ne trouvez pas ce que vous cherchez ?</h2>
-                    <p class="text-white/70 mb-10 max-w-2xl mx-auto relative z-10">Nos conseillers sont à votre disposition pour créer une offre 100% personnalisée selon votre situation unique.</p>
-                    <button onclick="navigateToContact()" class="bg-axa-red text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition-all relative z-10">Contacter un conseiller expert</button>
+                <!-- Customer Service Section (from image) -->
+                <div class="mt-12 md:mt-20 py-12 px-6 bg-slate-50 rounded-3xl">
+                    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                        <!-- Illustration -->
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <div class="relative w-64 h-64 md:w-80 md:h-80 bg-blue-100/50 rounded-full flex items-center justify-center overflow-hidden shadow-inner">
+                                <img src="https://illustrations.popsy.co/blue/customer-support.svg" alt="Support" class="w-4/5 h-4/5 object-contain">
+                            </div>
+                        </div>
+                        <!-- Card -->
+                        <div class="w-full md:w-1/2 relative">
+                            <div class="bg-axa-purple rounded-[2.5rem] p-8 md:p-12 text-center text-white shadow-2xl relative overflow-visible">
+                                <!-- Phone Icon with Check -->
+                                <div class="relative inline-block mb-8">
+                                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg transform -rotate-6">
+                                        <i data-lucide="phone" class="w-12 h-12 text-axa-purple fill-axa-purple"></i>
+                                    </div>
+                                    <div class="absolute -top-3 -right-3 bg-axa-green rounded-full p-1.5 border-4 border-axa-purple shadow-md">
+                                        <i data-lucide="check" class="w-5 h-5 text-white stroke-[4px]"></i>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-xl md:text-2xl font-bold leading-tight mb-10 text-balance">
+                                    CONTACTER NOUS POUR PLUS D'INFORMATION
+                                </h3>
+                                
+                                <div class="bg-white text-axa-purple inline-block px-12 py-4 rounded-2xl text-4xl md:text-5xl font-black tracking-tighter shadow-xl transform hover:scale-105 transition-transform cursor-default">
+                                    29 92
+                                </div>
+                                
+                                <!-- Yellow Floating Icon -->
+                                <div class="absolute -bottom-8 -right-4 md:-right-8 w-20 h-20 bg-axa-yellow rounded-full border-4 border-white shadow-2xl flex items-center justify-center transform hover:rotate-12 transition-transform">
+                                    <i data-lucide="headphones" class="text-axa-blue w-10 h-10"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -458,7 +491,7 @@
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-3 mb-8">
                     <div class="relative group">
-                        <img src= "ae-logo.svg" alt="Assurances ELOMRANI" class="h-16 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
+                        <img src="logo-elomrani.png" alt="Assurances ELOMRANI" class="h-12 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
                     </div>
                     <div class="flex flex-col leading-none">
                         <span class="font-bold text-lg uppercase tracking-wider">Assurances ELOMRANI</span>
@@ -476,7 +509,7 @@
                 <h4 class="font-bold text-lg mb-6">Liens Rapides</h4>
                 <ul class="space-y-4 text-white/60">
                     <li><button onclick="showSection('home')" class="hover:text-white transition-all">Accueil</button></li>
-                    <li><button onclick="showSection('history')" class="hover:text-white transition-all">Histoire AXA</button></li>
+                    <li><button onclick="showSection('history')" class="hover:text-white transition-all">Notre Histoire</button></li>
                     <li><button onclick="showSection('simulation')" class="hover:text-white transition-all">Offres</button></li>
                 </ul>
             </div>
