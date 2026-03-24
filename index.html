@@ -1,4 +1,4 @@
-<index.html>
+<!index.html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -33,7 +33,7 @@
         <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center relative">
             <button onclick="showSection('home')" class="flex items-center gap-2 md:gap-3">
                 <div class="relative group">
-                    <img src="ae-logo.svg" alt="Assurances ELOMRANI" class="h-10 md:h-14 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
+                    <img src="logo-elomrani.png" alt="Assurances ELOMRANI" class="h-10 md:h-14 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
                     <div class="absolute -bottom-4 left-0 text-[8px] font-black text-axa-blue opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">NOW YOU CAN</div>
                 </div>
                 <div class="flex flex-col leading-none text-left text-white nav-text">
@@ -44,7 +44,7 @@
 
             <div class="hidden md:flex items-center gap-8">
                 <button onclick="showSection('home')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Accueil</button>
-                <button onclick="showSection('history')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Histoire AXA</button>
+                <button onclick="showSection('history')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Historique</button>
                 <button onclick="showSection('simulation')" class="nav-link font-semibold text-sm text-white hover:text-axa-red transition-colors">Offres</button>
                 <button onclick="navigateToContact()" class="bg-axa-red text-white px-6 py-2.5 rounded-sm font-bold text-sm hover:bg-red-700 transition-all shadow-lg">CONTACTER NOUS</button>
                 
@@ -74,8 +74,23 @@
         <div id="section-home" class="page-section">
             <!-- Hero -->
             <section class="relative h-screen flex items-center overflow-hidden">
+                <!-- Slider Container -->
                 <div class="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="AXA Casablanca" class="w-full h-full object-cover">
+                    <div id="hero-slider" class="relative w-full h-full">
+                        <!-- Slide 1 -->
+                        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="AXA Casablanca" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2065&auto=format&fit=crop" alt="Habitation" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop" alt="Automobile" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <!-- Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-r from-axa-blue/90 via-axa-blue/60 to-transparent"></div>
                 </div>
                 <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
@@ -442,8 +457,7 @@
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-3 mb-8">
                     <div class="relative group">
-                        <img src="ae-logo.svg" alt="Assurances ELOMRANI" class="h-12 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
-                        <div class="absolute -bottom-4 left-0 text-[8px] font-black text-white opacity-60 whitespace-nowrap uppercase tracking-tighter">NOW YOU CAN</div>
+                        <img src="logo-elomrani.png" alt="Assurances ELOMRANI" class="h-12 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
                     </div>
                     <div class="flex flex-col leading-none">
                         <span class="font-bold text-lg uppercase tracking-wider">Assurances ELOMRANI</span>
@@ -452,16 +466,16 @@
                 </div>
                 <p class="text-white/60 max-w-md mb-8 leading-relaxed">Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. Nous vous accompagnons dans tous vos projets de protection et d'épargne.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="facebook" size="18"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="instagram" size="18"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="linkedin" size="18"></i></a>
+                    <a href="https://www.facebook.com/share/1FaYhykQnE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="facebook" size="18"></i></a>
+                    <a href="https://www.instagram.com/assurances.elomrani?igsh=MW5uZWJsdDMydjB0NA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="instagram" size="18"></i></a>
+                    <a href="https://www.linkedin.com/in/fatima-elomrani-39b7a839b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="linkedin" size="18"></i></a>
                 </div>
             </div>
             <div>
                 <h4 class="font-bold text-lg mb-6">Liens Rapides</h4>
                 <ul class="space-y-4 text-white/60">
                     <li><button onclick="showSection('home')" class="hover:text-white transition-all">Accueil</button></li>
-                    <li><button onclick="showSection('history')" class="hover:text-white transition-all"Histoire AXA</button></li>
+                    <li><button onclick="showSection('history')" class="hover:text-white transition-all">Notre Histoire</button></li>
                     <li><button onclick="showSection('simulation')" class="hover:text-white transition-all">Offres</button></li>
                 </ul>
             </div>
@@ -504,5 +518,4 @@
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
 </body>
-</html>
 </html>
