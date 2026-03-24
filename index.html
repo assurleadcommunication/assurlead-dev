@@ -485,45 +485,52 @@
     </div>
 
     <!-- Footer -->
-         <!-- LOGO IMAGE (REMPLACE AXA TEXTE) -->
-      <div class="flex items-center gap-4 mb-8">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Axa_logo.svg" 
-             alt="AXA Assurances" 
-             class="h-12 bg-white p-2 rounded-sm">
-
-        <div class="flex flex-col leading-none">
-          <span class="font-bold text-lg uppercase tracking-wider">ASSURANCES ELOMRANI</span>
-          <span class="text-[10px] font-medium opacity-60 uppercase">Agent Général</span>
+      <footer class="bg-axa-blue text-white py-20 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-left">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-white p-2 rounded-sm">
+                        <span class="text-axa-blue font-extrabold text-2xl tracking-tighter">AXA</span>
+                    </div>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-bold text-lg uppercase tracking-wider">ASSURANCES ELOMRANI</span>
+                        <span class="text-[10px] font-medium opacity-60 uppercase">Agent Général</span>
+                    </div>
+                </div>
+                <p class="text-white/60 max-w-md mb-8 leading-relaxed">Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. Nous vous accompagnons dans tous vos projets de protection et d'épargne.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="facebook" size="18"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="instagram" size="18"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all"><i data-lucide="linkedin" size="18"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6">Liens Rapides</h4>
+                <ul class="space-y-4 text-white/60">
+                    <li><button onclick="showSection('home')" class="hover:text-white transition-all">Accueil</button></li>
+                    <li><button onclick="showSection('history')" class="hover:text-white transition-all">Notre Histoire</button></li>
+                    <li><button onclick="showSection('simulation')" class="hover:text-white transition-all">Offres</button></li>
+                    <li><a href="#contact" class="hover:text-white transition-all">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6">Assurances</h4>
+                <ul class="space-y-4 text-white/60">
+                    <li><a href="#" class="hover:text-white transition-all">Auto</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Habitation</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Santé</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Professionnelle</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-
-      <p class="text-white/60 max-w-md mb-8 leading-relaxed">
-        Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. 
-        Nous vous accompagnons dans tous vos projets de protection et d'épargne.
-      </p>
-
-      <!-- Réseaux sociaux -->
-      <div class="flex gap-4">
-        <a href="https://www.facebook.com/share/1FaYhykQnE/?mibextid=wwXIfr" target="_blank"
-          class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-all">
-          <i data-lucide="facebook"></i>
-        </a>
-
-        <a href="https://www.instagram.com/assurances.elomrani" target="_blank"
-          class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-all">
-          <i data-lucide="instagram"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/in/fatima-elomrani-39b7a839b" target="_blank"
-          class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-all">
-          <i data-lucide="linkedin"></i>
-        </a>
-      </div>
-
-    </div>
-
-  </div>
-</footer>
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 flex flex-col md:row justify-between items-center gap-4 text-white/40 text-sm">
+            <p>© 2026 Assurances ELOMRANI - Agent Général AXA. Tous droits réservés.</p>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-white transition-all">Mentions Légales</a>
+                <a href="#" class="hover:text-white transition-all">Politique de Confidentialité</a>
+            </div>
+        </div>
+    </footer>
 
 <!-- SCRIPT OBLIGATOIRE (FIN DU BODY) -->
 <script src="https://unpkg.com/lucide@latest"></script>
