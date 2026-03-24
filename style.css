@@ -1,10 +1,4 @@
-/* style.css - Version Finale Complète */
 
-/* Variables de marque AXA */
-:root {
-    --axa-blue: #00008F;
-    --axa-red: #FF0000;
-    --white: #FFFFFF;
     --slate-50: #F8FAFC;
 }
 
@@ -157,3 +151,4 @@
 .btn-hover-effect:hover::after {
     transform: translate(-50%, -50%) rotate(45deg) scale(1);
 }
+
