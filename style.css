@@ -1,31 +1,20 @@
-/* ================= ROOT VARIABLES ================= */
+/* style.css - Version Finale Complète */
+
+/* Variables de marque AXA */
 :root {
-    --axa-blue: #00008f;
-    --axa-red: #e60000;
-    --white: #ffffff;
+    --axa-blue: #00008F;
+    --axa-red: #FF0000;
+    --white: #FFFFFF;
     --slate-50: #F8FAFC;
 }
 
-/* ================= SOCIAL ICONS ================= */
-.social-icons a {
-    display: inline-block;
-    margin: 0 8px;
-    font-size: 20px;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.social-icons a:hover {
-    transform: translateY(-2px);
-    color: var(--axa-blue);
-}
-
-/* ================= SUBTLE BACKGROUND ================= */
+/* Motif AXA - Fond Blanc avec motif "AXA" très subtil et plus grand */
 .zellig-pattern {
     background-color: var(--white);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-size='50' font-family='Arial' fill='%2300008f' fill-opacity='0.02'%3EAXA%3C/text%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-weight='900' font-size='50' fill='%2300008f' fill-opacity='0.04'%3EAXA%3C/text%3E%3C/svg%3E");
 }
 
-/* ================= SECTION BORDER ================= */
+/* Bordure décorative Zellig (utilisée pour séparer les sections) */
 .zellig-border {
     position: relative;
 }
@@ -36,98 +25,83 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 6px;
-    background: linear-gradient(to right, transparent, rgba(0,0,143,0.08), transparent);
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 8l20-8 20 8z' fill='%2300008f' fill-opacity='0.05'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
 }
 
-/* ================= FADE ANIMATION ================= */
+/* Animations de transition de page */
 .page-section {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.6s ease;
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
-.page-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================= NAVBAR SCROLLED ================= */
+/* Styles de la barre de navigation au défilement */
 .nav-scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding-top: 0.75rem !important;
-    padding-bottom: 0.75rem !important;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.15);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.1);
 }
 
-.nav-scrolled .nav-link,
-.nav-scrolled .nav-text,
+.nav-scrolled .nav-text {
+    color: var(--axa-blue) !important;
+}
+
+.nav-scrolled .nav-link {
+    color: var(--axa-blue) !important;
+}
+
 .nav-scrolled .mobile-toggle {
-    color: var(--axa-blue);
+    color: var(--axa-blue) !important;
 }
 
-/* ================= MOBILE MENU ================= */
-#mobile-menu {
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+/* Personnalisation de la barre de défilement */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-#mobile-menu.active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+::-webkit-scrollbar-track {
+    background: var(--slate-50);
 }
 
-/* ================= NAV LINKS ================= */
-.nav-link {
-    position: relative;
-    transition: color 0.3s ease;
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 5px;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--axa-red);
-    transition: width 0.3s ease;
+::-webkit-scrollbar-thumb:hover {
+    background: var(--axa-blue);
 }
 
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* ================= BUTTON EFFECT ================= */
-.btn-hover-effect {
-    transition: all 0.3s ease;
-}
-
-.btn-hover-effect:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-/* ================= MOBILE OPTIMIZATION ================= */
-@media (max-width: 768px) {
-    section {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-
-    .hero-text-shadow {
-        text-shadow: 0 2px 10px rgba(0, 0, 143, 0.3);
-    }
-
-    #map-section {
-        height: 300px;
-    }
-}
-
-/* ================= TEXT UTILITY ================= */
+/* Utilitaires de texte */
 .text-balance {
     text-wrap: balance;
+}
+
+/* Effet de survol des boutons */
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-effect::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    transition: transform 0.6s ease;
+}
+
+.btn-hover-effect:hover::after {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
 }
