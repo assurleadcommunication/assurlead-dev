@@ -2,7 +2,11 @@
     --slate-50: #F8FAFC;
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+.social-icons a {
+    display: inline-block;
+    margin: 0 8px;
+    font-size: 20px;
+}
 /* Motif AXA - Fond Blanc avec motif "AXA" très subtil et plus grand */
 .zellig-pattern {
     background-color: var(--white);
