@@ -503,21 +503,20 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#00008F] text-white py-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-0 zellig-pattern-axa-white"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-2">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-white flex items-center justify-center p-1 rounded-sm">
-                            <img src="ae-logo.svg" alt="AXA" class="w-full h-auto">
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="font-bold text-2xl tracking-tighter">AXA <span class="text-[#FF0000]">EL OMRANI</span></span>
-                            <span class="text-[10px] uppercase tracking-widest font-semibold text-blue-200">Agent Général Casablanca</span>
-                        </div>
-                         <p class="text-white/60 max-w-md mb-8 leading-relaxed">Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. Nous vous accompagnons dans tous vos projets de protection et d'épargne.</p>
+   <!-- Footer -->
+    <footer class="bg-axa-blue text-white py-20 border-t border-white/10 zellig-border">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-left">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="relative group">
+                        <img src="logo-elomrani.png" alt="Assurances ELOMRANI" class="h-12 w-auto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png'">
+                    </div>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-bold text-lg uppercase tracking-wider">Assurances ELOMRANI</span>
+                        <span class="text-[10px] font-medium opacity-60 uppercase">AGENT GÉNÉRALE</span>
+                    </div>
+                </div>
+                <p class="text-white/60 max-w-md mb-8 leading-relaxed">Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. Nous vous accompagnons dans tous vos projets de protection et d'épargne.</p>
                 <div class="flex gap-4">
                     <a href="https://www.facebook.com/share/1FaYhykQnE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all text-white" title="Facebook">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -528,32 +527,35 @@
                     <a href="https://www.linkedin.com/in/fatima-elomrani-39b7a839b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-all text-white" title="LinkedIn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                     </a>
-                    </div>
-                 
-                </div>
-                <div>
-                    <h4 class="font-bold mb-6">Liens Rapides</h4>
-                    <ul class="space-y-4 text-blue-100/70 text-sm font-medium">
-                        <li><button onclick="showView('home')" class="hover:text-white transition-colors">Accueil</button></li>
-                        <li><button onclick="showView('history')" class="hover:text-white transition-colors">Historique</button></li>
-                        <li><button onclick="scrollToSection('#offres')" class="hover:text-white transition-colors">Offres</button></li>
-                        <li><button onclick="scrollToSection('#contact')" class="hover:text-white transition-colors">Contact</button></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-6">Légal</h4>
-                    <ul class="space-y-4 text-blue-100/70 text-sm font-medium">
-                        <li><a href="#" class="hover:text-white transition-colors">Mentions Légales</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Politique de Confidentialité</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Cookies</a></li>
-                    </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/10 text-center text-blue-200/50 text-xs">
-                <p>© <span id="current-year"></span> Assurances EL OMRANI. Tous droits réservés. Agent Général AXA Maroc.</p>
+            <div>
+                <h4 class="font-bold text-lg mb-6">Liens Rapides</h4>
+                <ul class="space-y-4 text-white/60">
+                    <li><button onclick="showSection('home')" class="hover:text-white transition-all">Accueil</button></li>
+                    <li><button onclick="showSection('history')" class="hover:text-white transition-all">Notre Histoire</button></li>
+                    <li><button onclick="showSection('simulation')" class="hover:text-white transition-all">Offres</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6">Assurances</h4>
+                <ul class="space-y-4 text-white/60">
+                    <li><a href="#" class="hover:text-white transition-all">Auto</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Habitation</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Santé</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Professionnelle</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm">
+            <p>© 2026 Assurances ELOMRANI - Agent Général AXA. Tous droits réservés.</p>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-white transition-all">Mentions Légales</a>
+                <a href="#" class="hover:text-white transition-all">Politique de Confidentialité</a>
             </div>
         </div>
     </footer>
+
 
     <!-- CTA Popup -->
     <div id="cta-popup" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/50">
