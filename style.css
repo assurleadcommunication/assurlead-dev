@@ -1,5 +1,3 @@
-/* style.css - Version Finale Complète */
-
 /* Variables de marque AXA */
 :root {
     --axa-blue: #00008F;
@@ -8,62 +6,48 @@
     --slate-50: #F8FAFC;
 }
 
-/* Motif AXA - Fond Blanc avec motif "AXA" très subtil et plus grand */
-.zellig-pattern {
-    background-color: var(--white);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-weight='900' font-size='50' fill='%2300008f' fill-opacity='0.04'%3EAXA%3C/text%3E%3C/svg%3E");
+/* Motif Zellig Marocain */
+.zellig-pattern-axa {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'%3E%3Ctext x='10' y='30' font-family='Arial' font-weight='900' font-size='24' fill='%2300008F'%3EAXA%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 150px 60px;
 }
 
-/* Bordure décorative Zellig (utilisée pour séparer les sections) */
-.zellig-border {
-    position: relative;
+.zellig-pattern-axa-white {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'%3E%3Ctext x='10' y='30' font-family='Arial' font-weight='900' font-size='24' fill='white'%3EAXA%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 150px 60px;
 }
 
-.zellig-border::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 8l20-8 20 8z' fill='%2300008f' fill-opacity='0.05'/%3E%3C/svg%3E");
-    background-repeat: repeat-x;
-}
-
-/* Animations de transition de page */
-.page-section {
-    animation: fadeIn 0.6s ease-out forwards;
-}
-
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Styles de la barre de navigation au défilement */
-.nav-scrolled {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px);
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 143, 0.1);
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-.nav-scrolled .nav-text {
-    color: var(--axa-blue) !important;
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-.nav-scrolled .nav-link {
-    color: var(--axa-blue) !important;
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-.nav-scrolled .mobile-toggle {
-    color: var(--axa-blue) !important;
-}
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.animate-slide-left { animation: slideLeft 0.8s ease-out forwards; }
+.animate-slide-right { animation: slideRight 0.8s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
 
-/* Personnalisation de la barre de défilement */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -71,37 +55,39 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
-    border-radius: 5px;
+    background: #cbd5e1;
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--axa-blue);
 }
 
-/* Utilitaires de texte */
-.text-balance {
-    text-wrap: balance;
+/* Transitions */
+.nav-link {
+    transition: all 0.3s ease;
 }
 
-/* Effet de survol des boutons */
-.btn-hover-effect {
-    position: relative;
-    overflow: hidden;
+/* Lucide Icons */
+svg.lucide {
+    display: inline-block;
+    vertical-align: middle;
+    stroke-width: 2;
 }
 
-.btn-hover-effect::after {
-    content: "";
+/* Slider */
+.hero-slide {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) rotate(45deg) scale(0);
-    transition: transform 0.6s ease;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
-.btn-hover-effect:hover::after {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+.hero-slide.active {
+    opacity: 1;
 }
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-cover: cover;
