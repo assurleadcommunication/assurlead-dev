@@ -257,3 +257,16 @@ function renderTimeline() {
 }
 
 // --- Popup ---
+function initPopup() {
+    setTimeout(() => {
+        const popup = document.getElementById('cta-popup');
+        popup.classList.remove('hidden');
+        popup.classList.add('flex');
+    }, 5000);
+}
+
+function closePopup() {
+    const popup = document.getElementById('cta-popup');
+    popup.classList.add('hidden');
+    popup.classList.remove('flex');
+}
