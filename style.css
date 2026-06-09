@@ -1,40 +1,82 @@
-/* Variables de marque El omrami */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-axa-blue: #00008F;
+  --color-axa-red: #FF0000;
+}
+
+/* Variables de marque AXA */
 :root {
     --axa-blue: #00008F;
     --axa-red: #FF0000;
     --white: #FFFFFF;
-      --slate-50: #F8FAFC;
+    --slate-50: #F8FAFC;
 }
 
+/* Motif Zellig Marocain - Fond Blanc avec motif bleu très subtil */
+.zellig-pattern {
+    background-color: var(--white);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2300008f' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h40v40H40V0zM0 40h40v40H40V40zm10 10h20v20H10V50zm40 0h20v20H50V50zm0-40h20v20H50V10zM10 10h20v20H10V10z'/%3E%3C/g%3E%3C/svg%3E");
+}
 
+/* Bordure décorative Zellig (utilisée pour séparer les sections) */
+.zellig-border {
+    position: relative;
+}
 
-/* Animations */
+.zellig-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 0l5 4 5-4 5 4 5-4 5 4 5-4 5 4 5-4v8H0V0z' fill='%2300008f' fill-opacity='0.1'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Gestion de la visibilité des sections (Single Page Application feel) */
+.page-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
+/* Popup CTA - Style et Animation */
+#cta-popup {
+    transition: all 0.3s ease-in-out;
 }
 
-@keyframes slideRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
+#cta-popup:not(.hidden) {
+    display: flex !important;
+    backdrop-filter: blur(4px);
 }
 
-@keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+/* Barre de navigation - Transitions de texte */
+.nav-text, .nav-link {
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
-.animate-slide-left { animation: slideLeft 0.8s ease-out forwards; }
-.animate-slide-right { animation: slideRight 0.8s ease-out forwards; }
-.animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
+/* Simulateur - Barre de progression */
+#sim-progress {
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-/* Custom Scrollbar */
+/* Personnalisation de la barre de défilement (Premium look) */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -52,38 +94,12 @@
     background: var(--axa-blue);
 }
 
-/* Transitions */
-.nav-link {
-    transition: all 0.3s ease;
+/* Styles pour les boutons interactifs */
+button {
+    cursor: pointer;
+    outline: none;
 }
 
-/* Lucide Icons */
-svg.lucide {
-    display: inline-block;
-    vertical-align: middle;
-    stroke-width: 2;
-}
-
-/* Slider */
-.hero-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-}
-
-.hero-slide.active {
-    opacity: 1;
-}
-
-.hero-slide img {
-    width: 100%;
-    height: 100%;
-    object-cover: cover;
-    transform: scale(1.1);
-    transition: transform 1.5s ease-out;
-}
-
-.hero-slide.active img {
-    transform: scale(1);
+button:active {
+    transform: scale(0.98);
 }
