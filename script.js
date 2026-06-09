@@ -174,13 +174,48 @@ function updateNavbarStyle(scrolled) {
 
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
+    const navbar = document.getElementById('navbar');
+    const isHidden = menu.classList.toggle('hidden');
+    
+    // If we are at the top, history view is hidden, and menu is opened, make navbar background solid so text is readable
+    if (!isHidden && window.scrollY <= 20 && document.getElementById('history-view').classList.contains('hidden')) {
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('bg-transparent', 'py-6');
+        document.getElementById('nav-title').classList.add('text-[#00008F]');
+        document.getElementById('nav-title').classList.remove('text-white');
+        document.getElementById('nav-subtitle').classList.add('text-gray-500');
+        document.getElementById('nav-subtitle').classList.remove('text-blue-100/80');
+        document.getElementById('mobile-menu-btn').classList.add('text-gray-900');
+        document.getElementById('mobile-menu-btn').classList.remove('text-white');
+    } else if (isHidden && window.scrollY <= 20 && document.getElementById('history-view').classList.contains('hidden')) {
+        // Restore transparency when mobile menu is closed at scroll position 0
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.add('bg-transparent', 'py-6');
+        document.getElementById('nav-title').classList.remove('text-[#00008F]');
+        document.getElementById('nav-title').classList.add('text-white');
+        document.getElementById('nav-subtitle').classList.remove('text-gray-500');
+        document.getElementById('nav-subtitle').classList.add('text-blue-100/80');
+        document.getElementById('mobile-menu-btn').classList.remove('text-gray-900');
+        document.getElementById('mobile-menu-btn').classList.add('text-white');
+    }
 }
 
 function scrollToSection(selector) {
-    const element = document.querySelector(selector);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    const homeView = document.getElementById('home-view');
+    if (homeView.classList.contains('hidden')) {
+        showView('home');
+        // Let view transition complete, then scroll smoothly
+        setTimeout(() => {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 120);
+    } else {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 }
 
@@ -212,7 +247,7 @@ function renderServices() {
     SERVICES.forEach((service, index) => {
         const isLarge = index === 0 || index === 1;
         const card = document.createElement('div');
-        card.className = `bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border border-white/10 group cursor-pointer flex flex-col justify-between ${
+        card.className = `bg-white p-6 md:p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border border-white/10 group cursor-pointer flex flex-col justify-between ${
             isLarge ? 'md:col-span-2 lg:col-span-3 min-h-[320px]' : 'md:col-span-2 lg:col-span-2 min-h-[280px]'
         }`;
         card.innerHTML = `
@@ -240,7 +275,7 @@ function renderTimeline() {
         div.className = `flex flex-col lg:flex-row items-center ${i % 2 === 0 ? 'lg:flex-row-reverse' : ''}`;
         div.innerHTML = `
             <div class="w-full lg:w-1/2 px-4 lg:px-12">
-                <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 relative group hover:shadow-xl transition-all duration-500 ${i % 2 === 0 ? 'text-left' : 'lg:text-right'}">
+                <div class="bg-white p-6 sm:p-10 rounded-[2rem] shadow-sm border border-gray-100 relative group hover:shadow-xl transition-all duration-500 ${i % 2 === 0 ? 'text-left' : 'text-left lg:text-right'}">
                     <span class="text-[#FF0000] font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">${item.year}</span>
                     <h4 class="text-2xl font-bold text-[#00008F] mb-4">${item.title}</h4>
                     <p class="text-gray-600 leading-relaxed text-base">${item.description}</p>
