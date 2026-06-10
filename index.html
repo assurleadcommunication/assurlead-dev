@@ -1,74 +1,30 @@
-<index.html>
-
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assurances EL OMRANI - Agent Général AXA Casablanca</title>
-    <meta name="description" content="Assurances EL OMRANI - Votre partenaire AXA à Casablanca pour l'assurance auto, habitation, santé et professionnelle." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-
-
+<!index.html>
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assurances ELOMRANI - Agent Général AXA Casablanca</title>
-        <link rel="icon" type="voyage-212assurances-1000x680.jpg" href="ae-logo.svg">
+    <title>Assurances EL OMRANI - Agent Général AXA Casablanca</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P7R2DJJP51"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-P7R2DJJP51');
-</script>
 <body class="min-h-screen bg-white font-sans text-gray-900 selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
 
-    <!-- Top Bar -->
-    <div id="top-bar" class="bg-[#00008F] text-white py-2 border-b border-white/10 relative z-[60] transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs font-bold">
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="phone" class="w-3 h-3"></i>
-                    <span>05 22 66 59 08</span>
-                </div>
-                <div class="hidden sm:flex items-center gap-2">
-                    <i data-lucide="mail" class="w-3 h-3"></i>
-                    <span>assur.socialmedia@gmail.com</span>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-              
-            </div>
-        </div>
-    </div>
-
     <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6 top-8">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <!-- Logo Section -->
                 <button onclick="showView('home')" class="flex items-center gap-3">
                     <div class="w-12 h-12 bg-white flex items-center justify-center p-1">
-                        <img src="ae-logo.svg" alt="AXA" class="w-full h-auto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png" alt="AXA" class="w-full h-auto">
                     </div>
                     <div class="flex flex-col text-left">
                         <span id="nav-title" class="font-bold text-lg tracking-tight leading-tight text-white">
-                            ASSURANCES ELOMRANI
+                            ASSURANCES EL OMRANI
                         </span>
                         <span id="nav-subtitle" class="text-[10px] uppercase tracking-widest font-bold text-blue-100/80">
                             AGENT GÉNÉRALE
@@ -77,12 +33,11 @@
                 </button>
                 
                 <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-10">
                     <button onclick="showView('home')" class="nav-link text-sm font-bold tracking-wide transition-colors text-white hover:text-blue-200">Accueil</button>
-                    <button onclick="showView('history')" class="nav-link text-sm font-bold tracking-wide transition-colors text-white hover:text-blue-200">Histoire AXA</button>
+                    <button onclick="showView('history')" class="nav-link text-sm font-bold tracking-wide transition-colors text-white hover:text-blue-200">Historique</button>
                     <button onclick="scrollToSection('#offres')" class="nav-link text-sm font-bold tracking-wide transition-colors text-white hover:text-blue-200">Offres</button>
                     <button onclick="scrollToSection('#contact')" class="nav-link text-sm font-bold tracking-wide transition-colors text-white hover:text-blue-200">Contact</button>
-
                     <a href="#contact" class="bg-[#FF0000] hover:bg-red-700 text-white px-8 py-3 font-bold text-sm transition-all uppercase tracking-wider">
                         CONTACTER NOUS
                     </a>
@@ -162,7 +117,7 @@
                         <!-- Image Side -->
                         <div class="relative animate-slide-left">
                             <div class="rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white relative z-10">
-                                <img src="voyage-212assurances-1000x680.jpg"Assurances Voyage" class="w-full h-auto object-cover">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Mme. FATIMA EL OMRANI" class="w-full h-auto object-cover">
                             </div>
                             <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FF0000]/10 rounded-full blur-3xl -z-0"></div>
                             <div class="absolute -bottom-10 -right-10 w-60 h-60 bg-[#00008F]/5 rounded-full blur-3xl -z-0"></div>
@@ -175,10 +130,10 @@
                                     L'expertise à votre service
                                 </p>
                                 <h2 class="text-4xl md:text-5xl font-bold text-[#00008F] mb-2 tracking-tight">
-                                    Assurances Voyages 
+                                    Mme. FATIMA EL OMRANI
                                 </h2>
                                 <p class="text-xl text-gray-500 font-semibold italic">
-                                    Assurances Elomrani
+                                    Agent Général AXA
                                 </p>
                             </div>
 
@@ -413,7 +368,7 @@
                                     </div>
                                     <div>
                                         <p class="font-bold text-[#00008F] text-lg">Email</p>
-                                        <p class="text-gray-500">assur.socialmedia@gmail.com</p>
+                                        <p class="text-gray-500">contact@axa-elomrani.ma</p>
                                     </div>
                                 </div>
                             </div>
@@ -467,7 +422,7 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.0857329584285!2d-7.5342936!3d33.603348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cb00123456789%3A0xabcdef1234567890!2sAssurances%20EL%20OMRANI!5e0!3m2!1sfr!2sma!4v1711485000000!5m2!1sfr!2sma" width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation Assurances EL OMRANI"></iframe>
                 <div class="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.1)]"></div>
                 <div class="absolute top-10 left-10 z-10 bg-white p-6 rounded-2xl shadow-2xl border border-gray-100 max-w-xs hidden md:block">
-                    <h4 class="font-bold text-[#00008F] mb-2">Assurances ELOMRANI</h4>
+                    <h4 class="font-bold text-[#00008F] mb-2">Assurances EL OMRANI</h4>
                     <p class="text-sm text-gray-600 mb-4">Bd Ali Yaâta, Ain Sebaa, Casablanca, Maroc</p>
                     <a href="https://maps.google.com?q=Assurances+EL+OMRANI+Casablanca" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#FF0000] hover:underline flex items-center gap-1">
                         Ouvrir dans Google Maps <i data-lucide="chevron-right" class="w-3 h-3"></i>
@@ -486,7 +441,7 @@
                     </button>
 
                     <div class="text-center mb-20">
-                        <p class="text-[#FF0000] font-bold uppercase tracking-[0.2em] text-sm mb-4">HISTOIRE AXA</p>
+                        <p class="text-[#FF0000] font-bold uppercase tracking-[0.2em] text-sm mb-4">NOTRE HISTOIRE</p>
                         <h2 class="text-4xl md:text-6xl font-bold text-[#00008F] tracking-tight mb-6">Plus de deux siècles d'expertise mondiale</h2>
                         <p class="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">Depuis 1817, AXA s'est transformé d'une petite mutuelle régionale en un leader mondial de l'assurance et de la gestion d'actifs.</p>
                     </div>
@@ -526,7 +481,7 @@
         </div>
     </main>
 
- <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-[#00008F] text-white py-16 relative overflow-hidden">
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-0 zellig-pattern-axa-white"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -534,50 +489,45 @@
                 <div class="col-span-2">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-14 h-14 bg-white flex items-center justify-center p-1 rounded-sm">
-                            <img src="ae-logo.svg" alt="AXA" class="w-full h-auto">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png" alt="AXA" class="w-full h-auto">
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-bold text-2xl tracking-tighter">ASSURANCES <span class="text-[#FF0000]">ELOMRANI</span></span>
+                            <span class="font-bold text-2xl tracking-tighter">AXA <span class="text-[#FF0000]">EL OMRANI</span></span>
                             <span class="text-[10px] uppercase tracking-widest font-semibold text-blue-200">Agent Général Casablanca</span>
                         </div>
                     </div>
-                    <p class="text-blue-100/70 max-w-md mb-8 leading-relaxed">Votre agence de proximité à Casablanca, membre du réseau AXA Assurance Maroc. Nous vous accompagnons dans tous vos projets de protection et d'épargne.</p>
+                    <p class="text-blue-100/70 max-w-sm mb-6">Votre partenaire de confiance pour toutes vos assurances au Maroc. Expertise AXA et service de proximité.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1FaYhykQnE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors duration-300"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                        <a href="https://www.instagram.com/assurances.elomrani?igsh=MW5uZWJsdDMydjB0NA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors duration-300"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="https://www.linkedin.com/in/fatima-elomrani-39b7a839b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors duration-300"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors duration-300"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors duration-300"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FF0000] transition-colors duration-300"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
                     </div>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6">Liens Rapides</h4>
                     <ul class="space-y-4 text-blue-100/70 text-sm font-medium">
                         <li><button onclick="showView('home')" class="hover:text-white transition-colors">Accueil</button></li>
-                        <li><button onclick="showView('history')" class="hover:text-white transition-colors">Histoire AXA</button></li>
+                        <li><button onclick="showView('history')" class="hover:text-white transition-colors">Historique</button></li>
                         <li><button onclick="scrollToSection('#offres')" class="hover:text-white transition-colors">Offres</button></li>
                         <li><button onclick="scrollToSection('#contact')" class="hover:text-white transition-colors">Contact</button></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6">Assurances</h4>
+                    <h4 class="font-bold mb-6">Légal</h4>
                     <ul class="space-y-4 text-blue-100/70 text-sm font-medium">
-                        <li><a href="#" class="hover:text-white transition-colors">Auto</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Habitation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Santé</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Professionnelle</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mentions Légales</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Politique de Confidentialité</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cookies</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-blue-200/50 text-xs">
-                <p>© <span id="current-year"></span> Assurances ELOMRANI. Tous droits réservés. Agent Général AXA Maroc.                             by Assurlead Communication</p>
-                <div class="flex gap-8">
-                    <a href="#" class="hover:text-white transition-all">Mentions Légales</a>
-                    <a href="#" class="hover:text-white transition-all">Politique de Confidentialité</a>
-                </div>
+            <div class="pt-8 border-t border-white/10 text-center text-blue-200/50 text-xs">
+                <p>© <span id="current-year"></span> Assurances EL OMRANI. Tous droits réservés. Agent Général AXA Maroc.</p>
             </div>
         </div>
     </footer>
 
-    <!--CTA Popup -->
+    <!-- CTA Popup -->
     <div id="cta-popup" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/50">
         <div class="bg-white rounded-[2.5rem] p-10 max-w-md w-full relative shadow-2xl overflow-hidden animate-scale-in">
             <div class="absolute inset-0 opacity-[0.05] pointer-events-none z-0 zellig-pattern-axa"></div>
@@ -591,7 +541,7 @@
                 <h3 class="text-3xl font-bold text-[#00008F] mb-3">Besoin d'aide ?</h3>
                 <p class="text-gray-600 mb-10 leading-relaxed">Nos conseillers sont disponibles pour vous aider à choisir la meilleure protection pour vous et vos proches.</p>
                 <div class="space-y-4">
-                    <button class="w-full bg-[#00008F] text-white py-5 rounded-2xl font-bold text-lg shadow-lg shadow-blue-900/20 hover:bg-blue-800 transition-all">05 22 66 59 08</button>
+                    <button class="w-full bg-[#00008F] text-white py-5 rounded-2xl font-bold text-lg shadow-lg shadow-blue-900/20 hover:bg-blue-800 transition-all">Être rappelé gratuitement</button>
                     <button onclick="closePopup()" class="w-full text-gray-400 font-bold text-sm uppercase tracking-widest">Plus tard</button>
                 </div>
             </div>
@@ -599,12 +549,22 @@
     </div>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/212674633743" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 left-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group">
+    <a href="https://wa.me/212522665908" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 left-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group">
         <i data-lucide="message-circle" class="w-7 h-7"></i>
         <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-500 font-bold text-sm whitespace-nowrap">Contactez-nous sur WhatsApp</span>
     </a>
+    <div class="flex items-center gap-3 border-l border-white/20 pl-8">
+    <a href="#" class="nav-link text-white hover:text-blue-200 transition-colors">
+        <i data-lucide="facebook" class="w-4 h-4"></i>
+    </a>
+    <a href="#" class="nav-link text-white hover:text-blue-200 transition-colors">
+        <i data-lucide="instagram" class="w-4 h-4"></i>
+    </a>
+    <a href="#" class="nav-link text-white hover:text-blue-200 transition-colors">
+        <i data-lucide="linkedin" class="w-4 h-4"></i>
+    </a>
+</div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
