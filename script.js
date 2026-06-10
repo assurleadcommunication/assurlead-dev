@@ -68,14 +68,7 @@ const HERO_IMAGES = [
 
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Initial icon creation
     lucide.createIcons();
-    
-    // Re-run after a small delay to ensure everything is rendered
-    setTimeout(() => {
-        lucide.createIcons();
-    }, 100);
-
     initHeroSlider();
     renderServices();
     renderTimeline();
@@ -89,7 +82,6 @@ function showView(viewName) {
     const homeView = document.getElementById('home-view');
     const historyView = document.getElementById('history-view');
     const navbar = document.getElementById('navbar');
-    const topBar = document.getElementById('top-bar');
     const navTitle = document.getElementById('nav-title');
     const navSubtitle = document.getElementById('nav-subtitle');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -98,18 +90,16 @@ function showView(viewName) {
     if (viewName === 'home') {
         homeView.classList.remove('hidden');
         historyView.classList.add('hidden');
-        topBar.classList.remove('hidden');
         window.scrollTo(0, 0);
         updateNavbarStyle(window.scrollY > 20);
     } else {
         homeView.classList.add('hidden');
         historyView.classList.remove('hidden');
-        topBar.classList.add('hidden');
         window.scrollTo(0, 0);
         
         // Always white navbar on history view
-        navbar.classList.add('bg-white', 'shadow-md', 'py-3', 'top-0');
-        navbar.classList.remove('bg-transparent', 'py-6', 'top-8');
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('bg-transparent', 'py-6');
         navTitle.classList.add('text-[#00008F]');
         navTitle.classList.remove('text-white');
         navSubtitle.classList.add('text-gray-500');
@@ -135,16 +125,14 @@ function initNavbar() {
 
 function updateNavbarStyle(scrolled) {
     const navbar = document.getElementById('navbar');
-    const topBar = document.getElementById('top-bar');
     const navTitle = document.getElementById('nav-title');
     const navSubtitle = document.getElementById('nav-subtitle');
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 
     if (scrolled) {
-        navbar.classList.add('bg-white', 'shadow-md', 'py-3', 'top-0');
-        navbar.classList.remove('bg-transparent', 'py-6', 'top-8');
-        topBar.classList.add('-translate-y-full');
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('bg-transparent', 'py-6');
         navTitle.classList.add('text-[#00008F]');
         navTitle.classList.remove('text-white');
         navSubtitle.classList.add('text-gray-500');
@@ -156,9 +144,8 @@ function updateNavbarStyle(scrolled) {
             link.classList.remove('text-white');
         });
     } else {
-        navbar.classList.remove('bg-white', 'shadow-md', 'py-3', 'top-0');
-        navbar.classList.add('bg-transparent', 'py-6', 'top-8');
-        topBar.classList.remove('-translate-y-full');
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.add('bg-transparent', 'py-6');
         navTitle.classList.remove('text-[#00008F]');
         navTitle.classList.add('text-white');
         navSubtitle.classList.remove('text-gray-500');
@@ -174,48 +161,13 @@ function updateNavbarStyle(scrolled) {
 
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    const navbar = document.getElementById('navbar');
-    const isHidden = menu.classList.toggle('hidden');
-    
-    // If we are at the top, history view is hidden, and menu is opened, make navbar background solid so text is readable
-    if (!isHidden && window.scrollY <= 20 && document.getElementById('history-view').classList.contains('hidden')) {
-        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
-        navbar.classList.remove('bg-transparent', 'py-6');
-        document.getElementById('nav-title').classList.add('text-[#00008F]');
-        document.getElementById('nav-title').classList.remove('text-white');
-        document.getElementById('nav-subtitle').classList.add('text-gray-500');
-        document.getElementById('nav-subtitle').classList.remove('text-blue-100/80');
-        document.getElementById('mobile-menu-btn').classList.add('text-gray-900');
-        document.getElementById('mobile-menu-btn').classList.remove('text-white');
-    } else if (isHidden && window.scrollY <= 20 && document.getElementById('history-view').classList.contains('hidden')) {
-        // Restore transparency when mobile menu is closed at scroll position 0
-        navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
-        navbar.classList.add('bg-transparent', 'py-6');
-        document.getElementById('nav-title').classList.remove('text-[#00008F]');
-        document.getElementById('nav-title').classList.add('text-white');
-        document.getElementById('nav-subtitle').classList.remove('text-gray-500');
-        document.getElementById('nav-subtitle').classList.add('text-blue-100/80');
-        document.getElementById('mobile-menu-btn').classList.remove('text-gray-900');
-        document.getElementById('mobile-menu-btn').classList.add('text-white');
-    }
+    menu.classList.toggle('hidden');
 }
 
 function scrollToSection(selector) {
-    const homeView = document.getElementById('home-view');
-    if (homeView.classList.contains('hidden')) {
-        showView('home');
-        // Let view transition complete, then scroll smoothly
-        setTimeout(() => {
-            const element = document.querySelector(selector);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 120);
-    } else {
-        const element = document.querySelector(selector);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+    const element = document.querySelector(selector);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
@@ -247,7 +199,7 @@ function renderServices() {
     SERVICES.forEach((service, index) => {
         const isLarge = index === 0 || index === 1;
         const card = document.createElement('div');
-        card.className = `bg-white p-6 md:p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border border-white/10 group cursor-pointer flex flex-col justify-between ${
+        card.className = `bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border border-white/10 group cursor-pointer flex flex-col justify-between ${
             isLarge ? 'md:col-span-2 lg:col-span-3 min-h-[320px]' : 'md:col-span-2 lg:col-span-2 min-h-[280px]'
         }`;
         card.innerHTML = `
@@ -275,7 +227,7 @@ function renderTimeline() {
         div.className = `flex flex-col lg:flex-row items-center ${i % 2 === 0 ? 'lg:flex-row-reverse' : ''}`;
         div.innerHTML = `
             <div class="w-full lg:w-1/2 px-4 lg:px-12">
-                <div class="bg-white p-6 sm:p-10 rounded-[2rem] shadow-sm border border-gray-100 relative group hover:shadow-xl transition-all duration-500 ${i % 2 === 0 ? 'text-left' : 'text-left lg:text-right'}">
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 relative group hover:shadow-xl transition-all duration-500 ${i % 2 === 0 ? 'text-left' : 'lg:text-right'}">
                     <span class="text-[#FF0000] font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">${item.year}</span>
                     <h4 class="text-2xl font-bold text-[#00008F] mb-4">${item.title}</h4>
                     <p class="text-gray-600 leading-relaxed text-base">${item.description}</p>
