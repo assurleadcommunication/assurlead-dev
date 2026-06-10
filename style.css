@@ -1,5 +1,23 @@
+/* Variables de marque AXA */
+:root {
+    --axa-blue: #00008F;
+    --axa-red: #FF0000;
+    --white: #FFFFFF;
+    --slate-50: #F8FAFC;
+}
 
+/* Motif Zellig Marocain */
+.zellig-pattern-axa {
+    background-image: url("");
+    background-repeat: repeat;
+    background-size: 150px 60px;
+}
 
+.zellig-pattern-axa-white {
+    background-image: url("");
+    background-repeat: repeat;
+    background-size: 150px 60px;
+}
 
 /* Animations */
 @keyframes fadeIn {
