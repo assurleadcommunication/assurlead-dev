@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import "tailwindcss";
-
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-axa-blue: #00008F;
-  --color-axa-red: #FF0000;
-}
-
 /* Variables de marque AXA */
 :root {
     --axa-blue: #00008F;
@@ -15,70 +6,36 @@
     --slate-50: #F8FAFC;
 }
 
-/* Motif Zellig Marocain Premium d'Octogones Étoilés */
-.zellig-pattern {
-    background-color: var(--white);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2300008F' stroke-width='1.2' stroke-opacity='0.08'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3Crect x='-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 80px 80px;
+
 }
 
-/* Bordure décorative Zellig (utilisée pour séparer les sections) */
-.zellig-border {
-    position: relative;
-}
-
-.zellig-border::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 0l5 4 5-4 5 4 5-4 5 4 5-4 5 4 5-4v8H0V0z' fill='%2300008f' fill-opacity='0.1'/%3E%3C/svg%3E");
-    background-repeat: repeat-x;
-}
-
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    overflow-x: hidden;
-  }
-}
-
-/* Gestion de la visibilité des sections (Single Page Application feel) */
-.page-section {
-    animation: fadeIn 0.5s ease-out;
-}
-
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Popup CTA - Style et Animation */
-#cta-popup {
-    transition: all 0.3s ease-in-out;
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-#cta-popup:not(.hidden) {
-    display: flex !important;
-    backdrop-filter: blur(4px);
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-/* Barre de navigation - Transitions de texte */
-.nav-text, .nav-link {
-    transition: color 0.3s ease, transform 0.2s ease;
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-/* Simulateur - Barre de progression */
-#sim-progress {
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.animate-slide-left { animation: slideLeft 0.8s ease-out forwards; }
+.animate-slide-right { animation: slideRight 0.8s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
 
-/* Personnalisation de la barre de défilement (Premium look) */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -96,12 +53,31 @@
     background: var(--axa-blue);
 }
 
-/* Styles pour les boutons interactifs */
-button {
-    cursor: pointer;
-    outline: none;
+/* Transitions */
+.nav-link {
+    transition: all 0.3s ease;
 }
 
-button:active {
-    transform: scale(0.98);
+/* Slider */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-cover: cover;
+    transform: scale(1.1);
+    transition: transform 1.5s ease-out;
+}
+
+.hero-slide.active img {
+    transform: scale(1);
 }
