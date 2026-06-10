@@ -1,0 +1,988 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { 
+  Car, 
+  Home, 
+  HeartPulse, 
+  ShieldCheck, 
+  Briefcase, 
+  PiggyBank, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Menu, 
+  X, 
+  ChevronRight,
+  ArrowRight,
+  Clock,
+  Users,
+  CheckCircle2,
+  Facebook,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+  Globe,
+  TrendingUp,
+  History as HistoryIcon,
+  Zap,
+  Shield,
+  Heart,
+  Target,
+  Award
+} from 'lucide-react';
+
+// --- Types ---
+interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+// --- Data ---
+const SERVICES: Service[] = [
+  {
+    id: 'auto',
+    title: 'Assurance Auto',
+    description: 'Une protection complète pour vous et votre véhicule, avec assistance 24/7.',
+    icon: <Car className="w-8 h-8" />,
+  },
+  {
+    id: 'habitation',
+    title: 'Assurance Habitation',
+    description: 'Protégez votre foyer et vos biens contre les imprévus (incendie, vol, dégâts des eaux).',
+    icon: <Home className="w-8 h-8" />,
+  },
+  {
+    id: 'sante',
+    title: 'Assurance Santé',
+    description: 'Des remboursements rapides et une couverture adaptée à vos besoins médicaux.',
+    icon: <HeartPulse className="w-8 h-8" />,
+  },
+  {
+    id: 'prevoyance',
+    title: 'Prévoyance',
+    description: 'Assurez l\'avenir de vos proches et maintenez votre niveau de vie.',
+    icon: <ShieldCheck className="w-8 h-8" />,
+  },
+  {
+    id: 'pro',
+    title: 'Assurance Pro',
+    description: 'Des solutions sur mesure pour les entreprises et les professionnels indépendants.',
+    icon: <Briefcase className="w-8 h-8" />,
+  },
+];
+
+// --- Components ---
+
+const Navbar = ({ onViewChange, currentView }: { onViewChange: (view: 'home' | 'history') => void, currentView: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: 'Accueil', view: 'home' as const },
+    { name: 'Historique', view: 'history' as const },
+    { name: 'Offres', view: 'home' as const, hash: '#offres' },
+    { name: 'Contact', view: 'home' as const, hash: '#contact' }
+  ];
+
+  const handleNavClick = (item: { name: string, view: 'home' | 'history', hash?: string }) => {
+    onViewChange(item.view);
+    setIsOpen(false);
+    if (item.hash && item.view === 'home') {
+      setTimeout(() => {
+        const el = document.querySelector(item.hash!);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || currentView === 'history' ? 'bg-white shadow-md py-3' : 'bg-transparent py-6'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* Logo Section */}
+          <button onClick={() => onViewChange('home')} className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-white flex items-center justify-center p-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png" alt="AXA" className="w-full h-auto" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className={`font-bold text-lg tracking-tight leading-tight ${scrolled || currentView === 'history' ? 'text-axa-blue' : 'text-white'}`}>
+                ASSURANCES EL OMRANI
+              </span>
+              <span className={`text-[10px] uppercase tracking-widest font-bold ${scrolled || currentView === 'history' ? 'text-gray-500' : 'text-blue-100/80'}`}>
+                AGENT GÉNÉRALE
+              </span>
+            </div>
+          </button>
+          
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-10">
+            {navItems.map((item) => (
+              <button 
+                key={item.name} 
+                onClick={() => handleNavClick(item)}
+                className={`text-sm font-bold tracking-wide transition-colors ${scrolled || currentView === 'history' ? 'text-gray-700 hover:text-axa-red' : 'text-white hover:text-blue-200'}`}
+              >
+                {item.name}
+              </button>
+            ))}
+            <a href="#contact" onClick={() => onViewChange('home')} className="bg-axa-red hover:bg-red-700 text-white px-8 py-3 font-bold text-sm transition-all uppercase tracking-wider">
+              CONTACTER NOUS
+            </a>
+          </div>
+
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className={scrolled || currentView === 'history' ? 'text-gray-900' : 'text-white'}>
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+          >
+            <div className="px-4 pt-2 pb-6 space-y-1">
+              {navItems.map((item) => (
+                <button 
+                  key={item.name}
+                  onClick={() => handleNavClick(item)}
+                  className="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-axa-red transition-all"
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920", // Modern building
+    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1920",
+    "https://images.unsplash.com/photo-1509059852496-f3822ae057bf?auto=format&fit=crop&q=80&w=1920"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section id="accueil" className="relative min-h-screen flex items-center pt-20 overflow-hidden page-section">
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0"
+          >
+            {/* Deep Blue/Purple Overlay to match image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-axa-blue/90 via-axa-blue/70 to-transparent z-10"></div>
+            <img 
+              src={images[currentImage]} 
+              alt="Background" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+        <div className="flex justify-start items-center text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
+          >
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-8">
+              <div className="w-5 h-5 rounded-full bg-axa-red flex items-center justify-center">
+                <ShieldCheck className="w-3 h-3 text-white" />
+              </div>
+              <span className="text-white text-xs font-bold uppercase tracking-widest">
+                VOTRE PARTENAIRE DE CONFIANCE À CASABLANCA
+              </span>
+            </div>
+
+            <h1 className="text-6xl md:text-8xl font-bold text-white leading-[1.05] mb-8 tracking-tight">
+              Votre assurance,<br />
+              notre engagement.
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed">
+              Protégez ce qui compte vraiment pour vous avec l'expertise d'un agent général AXA dédié.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-axa-red hover:bg-red-700 text-white px-10 py-5 font-bold text-lg transition-all flex items-center justify-center gap-3 group shadow-xl">
+                Obtenir un devis gratuit
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="bg-white text-axa-blue hover:bg-gray-100 px-10 py-5 font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-xl">
+                <Phone className="w-5 h-5" />
+                Être rappelé
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+const Services = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 45, 
+      scale: 0.96 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 14,
+      }
+    },
+  };
+
+  return (
+    <section id="offres" className="py-24 bg-axa-blue text-white relative overflow-hidden page-section">
+      {/* Motif Traditionnel Marocain de Zellige */}
+      <div className="absolute inset-0 opacity-[0.16] pointer-events-none z-0">
+        <div className="absolute inset-0" style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2338bdf8' stroke-width='1.2'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3Crect x='-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '80px 80px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Nos Offres d'Assurance</h2>
+          <p className="text-blue-100/80 max-w-2xl mx-auto text-lg">
+            Découvrez nos solutions de protection conçues pour répondre à tous vos besoins, que vous soyez un particulier ou un professionnel.
+          </p>
+        </div>
+        
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
+          {SERVICES.map((service, index) => {
+            // Bento Grid Logic: First two are larger
+            const isLarge = index === 0 || index === 1;
+            return (
+              <motion.div
+                key={service.id}
+                variants={cardVariants}
+                className={`bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border border-white/10 group cursor-pointer flex flex-col justify-between ${
+                  isLarge ? 'md:col-span-2 lg:col-span-3 min-h-[320px]' : 'md:col-span-2 lg:col-span-2 min-h-[280px]'
+                }`}
+              >
+                <div>
+                  <div className="w-14 h-14 bg-blue-50 text-axa-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-axa-blue group-hover:text-white transition-all duration-500">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-axa-blue mb-3 tracking-tight">{service.title}</h3>
+                  <p className="text-gray-500 leading-relaxed mb-6 text-sm md:text-base">{service.description}</p>
+                </div>
+                <div className="flex items-center text-axa-blue font-bold text-sm group-hover:gap-2 transition-all">
+                  En savoir plus <ChevronRight className="w-4 h-4" />
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+
+const About = () => {
+  return (
+    <section id="a-propos" className="py-24 page-section relative overflow-hidden bg-white">
+      {/* Motif Traditionnel Marocain de Zellige */}
+      <div className="absolute inset-0 opacity-[0.12] pointer-events-none z-0">
+        <div className="absolute inset-0" style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2300008F' stroke-width='1.2'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3Crect x='-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '80px 80px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Image Side */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white relative z-10">
+              <img 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                alt="Mme. FATIMA EL OMRANI" 
+                className="w-full h-auto object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            {/* Decorative element behind image */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-axa-red/10 rounded-full blur-3xl -z-0"></div>
+            <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-axa-blue/5 rounded-full blur-3xl -z-0"></div>
+          </motion.div>
+
+          {/* Content Side */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div>
+              <p className="text-axa-red font-bold uppercase tracking-[0.2em] text-sm mb-4">
+                L'expertise à votre service
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-axa-blue mb-2 tracking-tight">
+                Mme. FATIMA EL OMRANI
+              </h2>
+              <p className="text-xl text-gray-500 font-semibold italic">
+                Agent Général AXA
+              </p>
+            </div>
+
+            <p className="text-gray-600 leading-relaxed text-lg">
+              Avec plus de 15 ans d'expérience dans le secteur des assurances à Casablanca, notre agence s'engage à vous offrir un conseil personnalisé et une réactivité exemplaire.
+            </p>
+            
+            <div className="space-y-5">
+              {[
+                'Proximité et écoute active',
+                'Conseils personnalisés selon vos besoins',
+                'Accompagnement dédié en cas de sinistre',
+                'Réactivité et transparence totale',
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full border-2 border-axa-red flex items-center justify-center">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-axa-red" />
+                  </div>
+                  <span className="font-bold text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-6">
+              <button 
+                onClick={() => {
+                  const el = document.querySelector('#solutions');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-10 py-4 border-2 border-axa-blue text-axa-blue font-bold rounded-sm hover:bg-axa-blue hover:text-white transition-all duration-300 uppercase tracking-wider text-sm"
+              >
+                Découvrir nos valeurs
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const SolutionsSection = () => {
+  const values = [
+    { title: "Customer First", description: "Toutes nos actions sont guidées par les besoins et la satisfaction de nos clients.", icon: <Heart className="w-6 h-6" /> },
+    { title: "Intégrité", description: "Nous agissons avec honnêteté et transparence dans toutes nos relations.", icon: <Shield className="w-6 h-6" /> },
+    { title: "Courage", description: "Nous osons innover et prendre des décisions pour mieux protéger l'avenir.", icon: <Target className="w-6 h-6" /> },
+    { title: "One AXA", description: "La force d'un collectif uni pour offrir le meilleur service partout dans le monde.", icon: <Award className="w-6 h-6" /> }
+  ];
+
+  return (
+    <section id="solutions" className="py-24 bg-gray-50 overflow-hidden page-section relative">
+      {/* Background Pattern */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.08] pointer-events-none">
+        <div className="absolute inset-0" style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2300008F' stroke-width='1.2'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3Crect x='-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '80px 80px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Values Section */}
+        <div className="mb-24">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold text-axa-blue mb-4">Nos Valeurs Fondamentales</h3>
+            <p className="text-gray-500">Ce qui nous anime au quotidien pour mieux vous servir.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 bg-axa-red/10 text-axa-red rounded-xl flex items-center justify-center mb-6 group-hover:bg-axa-red group-hover:text-white transition-all duration-300">
+                  {value.icon}
+                </div>
+                <h4 className="text-xl font-bold text-axa-blue mb-3">{value.title}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Final CTA for Solutions */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center bg-white p-12 rounded-[3rem] shadow-xl border border-gray-100"
+        >
+          <h3 className="text-3xl font-bold text-axa-blue mb-6">Prêt à bénéficier de notre expertise ?</h3>
+          <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
+            Que vous soyez un particulier ou une entreprise, nous mettons toute la puissance du groupe AXA à votre service pour protéger ce qui vous est cher.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#contact" className="bg-axa-blue text-white px-10 py-4 rounded-full font-bold hover:bg-blue-800 transition-all shadow-lg shadow-blue-900/20 uppercase tracking-wider text-sm">
+              Demander un devis gratuit
+            </a>
+            <a href="#offres" className="bg-white text-axa-blue border-2 border-axa-blue px-10 py-4 rounded-full font-bold hover:bg-axa-blue hover:text-white transition-all uppercase tracking-wider text-sm">
+              Voir nos solutions
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const HistoryPage = ({ onBack }: { onBack: () => void }) => {
+  const timeline = [
+    {
+      year: "1817",
+      title: "Les Origines",
+      description: "Création de la Mutuelle de L'Assurance contre L'Incendie (Ancienne Mutuelle de Rouen), point de départ de l'aventure AXA."
+    },
+    {
+      year: "1985",
+      title: "Naissance d'AXA",
+      description: "Le groupe adopte officiellement le nom AXA, une marque courte et dynamique conçue pour une expansion internationale."
+    },
+    {
+      year: "1996",
+      title: "L'Expansion Majeure",
+      description: "Acquisition de l'UAP, doublant la taille du groupe et le propulsant au rang de leader mondial de l'assurance."
+    },
+    {
+      year: "2000",
+      title: "Expertise Financière",
+      description: "Acquisition de Sanford C. Bernstein, renforçant les capacités du groupe en gestion d'actifs (AllianceBernstein)."
+    },
+    {
+      year: "2016",
+      title: "Transformation Digitale",
+      description: "Lancement du plan stratégique Ambition 2020, axé sur l'innovation, la santé et la protection des clients."
+    }
+  ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white pt-32 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button 
+          onClick={onBack}
+          className="flex items-center gap-2 text-axa-blue font-bold mb-12 hover:text-axa-red transition-colors group"
+        >
+          <X className="w-5 h-5 group-hover:rotate-90 transition-transform" />
+          Retour à l'accueil
+        </button>
+
+        <div className="text-center mb-20">
+          <p className="text-axa-red font-bold uppercase tracking-[0.2em] text-sm mb-4">NOTRE HISTOIRE</p>
+          <h2 className="text-4xl md:text-6xl font-bold text-axa-blue tracking-tight mb-6">
+            Plus de deux siècles d'expertise mondiale
+          </h2>
+          <p className="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">
+            Depuis 1817, AXA s'est transformé d'une petite mutuelle régionale en un leader mondial de l'assurance et de la gestion d'actifs.
+          </p>
+        </div>
+
+        {/* Timeline Section */}
+        <div className="mb-32">
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 hidden lg:block"></div>
+            <div className="space-y-16 lg:space-y-0">
+              {timeline.map((item, i) => (
+                <div key={i} className={`flex flex-col lg:flex-row items-center ${i % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
+                  <motion.div
+                    initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="w-full lg:w-1/2 px-4 lg:px-12"
+                  >
+                    <div className={`bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 relative group hover:shadow-xl transition-all duration-500 ${i % 2 === 0 ? 'text-left' : 'lg:text-right'}`}>
+                      <span className="text-axa-red font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">{item.year}</span>
+                      <h4 className="text-2xl font-bold text-axa-blue mb-4">{item.title}</h4>
+                      <p className="text-gray-600 leading-relaxed text-base">{item.description}</p>
+                    </div>
+                  </motion.div>
+                  <div className="w-14 h-14 bg-axa-blue rounded-full border-4 border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0 group">
+                    <Zap className="w-6 h-6 text-white group-hover:scale-125 transition-transform" />
+                  </div>
+                  <div className="hidden lg:block lg:w-1/2"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* AXA Morocco Section */}
+        <div className="bg-axa-blue rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6">AXA au Maroc : Une Présence Historique</h3>
+              <p className="text-blue-100 text-lg leading-relaxed mb-8">
+                Présent au Maroc depuis plusieurs décennies, AXA Assurance Maroc est aujourd'hui un acteur incontournable du marché. Notre agence à Casablanca s'inscrit dans cette lignée d'excellence.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white/5 p-8 rounded-3xl border border-white/10 text-center">
+                <p className="text-4xl font-bold mb-2">1er</p>
+                <p className="text-sm text-blue-200 uppercase tracking-wider">Réseau d'Agents</p>
+              </div>
+              <div className="bg-white/5 p-8 rounded-3xl border border-white/10 text-center">
+                <p className="text-4xl font-bold mb-2">24/7</p>
+                <p className="text-sm text-blue-200 uppercase tracking-wider">Assistance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const WhyChooseUs = () => {
+  return (
+    <section className="py-24 bg-axa-blue text-white overflow-hidden relative">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-[120px]"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-axa-red/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-[120px]"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Side: Content & Features */}
+          <div className="space-y-12">
+            <div>
+              <p className="text-axa-red font-bold uppercase tracking-[0.2em] text-sm mb-4">
+                POURQUOI NOUS CHOISIR ?
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+                L'expertise d'un grand groupe mondial,<br />
+                la proximité d'un agent local.
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {[
+                {
+                  title: "Conseils Personnalisés",
+                  description: "Nous analysons vos besoins réels pour vous proposer des solutions adaptées."
+                },
+                {
+                  title: "Solidité AXA",
+                  description: "Leader mondial de l'assurance avec une présence historique au Maroc."
+                },
+                {
+                  title: "Réactivité Sinistre",
+                  description: "Un accompagnement dédié pour un règlement rapide de vos dossiers."
+                },
+                {
+                  title: "Proximité Locale",
+                  description: "Situé au cœur de Casablanca pour être au plus proche de vous."
+                }
+              ].map((feature, i) => (
+                <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-2 h-2 rounded-full bg-axa-red shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
+                    <h3 className="text-xl font-bold tracking-tight">{feature.title}</h3>
+                  </div>
+                  <p className="text-blue-100/60 leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Testimonial Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 md:p-14 rounded-[3rem] relative z-10">
+              <div className="text-axa-red mb-10 opacity-80">
+                <svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.7143 0L20.5714 6.85714V20.5714H0V0H13.7143ZM41.1429 0L48 6.85714V20.5714H27.4286V0H41.1429Z" transform="translate(0 8)" />
+                </svg>
+              </div>
+              
+              <p className="text-2xl md:text-3xl font-medium leading-relaxed mb-12 italic text-white/90">
+                "Un service exceptionnel et une équipe très professionnelle. Mme ELOMRANI a su trouver la meilleure couverture pour mon entreprise."
+              </p>
+
+              <div className="flex items-center gap-5">
+                <div className="w-16 h-16 bg-axa-red rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-2xl shadow-axa-red/20">
+                  M
+                </div>
+                <div>
+                  <p className="font-bold text-xl tracking-tight">Mohammed A.</p>
+                  <p className="text-blue-200/50 text-sm font-medium">Chef d'entreprise</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Decorative glow behind the card */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-axa-blue/20 rounded-full blur-[100px] -z-0"></div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Contact = () => {
+  return (
+    <section id="contact" className="py-24 bg-gray-50 page-section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Side: Text and Info */}
+          <div className="space-y-12">
+            <div>
+              <h2 className="text-5xl font-bold text-axa-blue mb-6 leading-tight tracking-tight">
+                Prêt à être mieux<br />protégé ?
+              </h2>
+              <p className="text-gray-600 text-xl leading-relaxed max-w-md">
+                Contactez-nous pour une étude personnalisée de vos besoins ou rendez-vous directement en agence.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              {[
+                {
+                  icon: <MapPin className="w-6 h-6 text-axa-blue" />,
+                  title: "Notre Adresse",
+                  value: "108 Bd Ali Yaâta, Casablanca 20250"
+                },
+                {
+                  icon: <Phone className="w-6 h-6 text-axa-blue" />,
+                  title: "Téléphone",
+                  value: "05 22 66 59 08"
+                },
+                {
+                  icon: <Mail className="w-6 h-6 text-axa-blue" />,
+                  title: "Email",
+                  value: "contact@axa-elomrani.ma"
+                }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-6 group">
+                  <div className="w-14 h-14 bg-white rounded-2xl shadow-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="font-bold text-axa-blue text-lg">{item.title}</p>
+                    <p className="text-gray-500">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Form Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-[2.5rem] shadow-2xl p-8 md:p-12 border border-gray-100"
+          >
+            <form className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">NOM COMPLET</label>
+                  <input 
+                    type="text" 
+                    placeholder="Votre nom" 
+                    className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400" 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">TÉLÉPHONE</label>
+                  <input 
+                    type="tel" 
+                    placeholder="Votre numéro" 
+                    className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400" 
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">TYPE D'ASSURANCE</label>
+                <div className="relative">
+                  <select className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all appearance-none cursor-pointer text-gray-700">
+                    <option>Automobile</option>
+                    <option>Habitation</option>
+                    <option>Santé</option>
+                    <option>Professionnelle</option>
+                    <option>Prévoyance</option>
+                  </select>
+                  <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                    <ChevronRight className="w-4 h-4 rotate-90" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">MESSAGE (OPTIONNEL)</label>
+                <textarea 
+                  placeholder="Comment pouvons-nous vous aider ?" 
+                  rows={4} 
+                  className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400 resize-none"
+                ></textarea>
+              </div>
+
+              <button className="w-full bg-axa-red hover:bg-red-700 text-white py-5 rounded-xl font-bold text-lg transition-all shadow-xl shadow-red-200/50 active:scale-[0.98]">
+                Envoyer ma demande
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CTA_Popup = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isVisible) return null;
+
+  return (
+    <div id="cta-popup" className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50">
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="bg-white rounded-[2.5rem] p-10 max-w-md w-full relative shadow-2xl overflow-hidden"
+      >
+        {/* Motif Traditionnel Marocain de Zellige */}
+        <div className="absolute inset-0 opacity-[0.12] pointer-events-none z-0">
+          <div className="absolute inset-0" style={{ 
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2300008F' stroke-width='1.2'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3Crect x='-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '80px 80px'
+          }}></div>
+        </div>
+
+        <button 
+          onClick={() => setIsVisible(false)}
+          className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 z-10"
+        >
+          <X className="w-6 h-6" />
+        </button>
+        <div className="text-center relative z-10">
+          <div className="bg-blue-50 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-inner">
+            <Phone className="text-axa-blue w-10 h-10" />
+          </div>
+          <h3 className="text-3xl font-bold text-axa-blue mb-3">Besoin d'aide ?</h3>
+          <p className="text-gray-600 mb-10 leading-relaxed">
+            Nos conseillers sont disponibles pour vous aider à choisir la meilleure protection pour vous et vos proches.
+          </p>
+          <div className="space-y-4">
+            <button className="w-full bg-axa-blue text-white py-5 rounded-2xl font-bold text-lg shadow-lg shadow-blue-900/20 hover:bg-blue-800 transition-all">
+              Être rappelé gratuitement
+            </button>
+            <button 
+              onClick={() => setIsVisible(false)}
+              className="w-full text-gray-400 font-bold text-sm uppercase tracking-widest"
+            >
+              Plus tard
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="col-span-2">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 bg-white flex items-center justify-center p-1 rounded-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/1200px-AXA_Logo.svg.png" alt="AXA" className="w-full h-auto" />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-2xl tracking-tighter">
+                  AXA <span className="text-axa-red">EL OMRANI</span>
+                </span>
+                <span className="text-[10px] uppercase tracking-widest font-semibold text-gray-400">
+                  Agent Général Casablanca
+                </span>
+              </div>
+            </div>
+            <p className="text-gray-400 max-w-sm mb-6">
+              Votre partenaire de confiance pour toutes vos assurances au Maroc. Expertise AXA et service de proximité.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue transition-colors duration-300">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue transition-colors duration-300">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue transition-colors duration-300">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-bold mb-6">Liens Rapides</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
+              <li><a href="#accueil" className="hover:text-white transition-colors">Accueil</a></li>
+              <li><a href="#historique" className="hover:text-white transition-colors">Historique</a></li>
+              <li><a href="#offres" className="hover:text-white transition-colors">Offres</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-bold mb-6">Légal</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
+              <li><a href="#" className="hover:text-white transition-colors">Mentions Légales</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Politique de Confidentialité</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="pt-8 border-t border-gray-800 text-center text-gray-500 text-xs">
+          <p>© {new Date().getFullYear()} Assurances EL OMRANI. Tous droits réservés. Agent Général AXA Maroc.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+const WhatsAppButton = () => {
+  return (
+    <a 
+      href="https://wa.me/212522665908" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="fixed bottom-8 left-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group"
+    >
+      <MessageCircle className="w-7 h-7" />
+      <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-500 font-bold text-sm whitespace-nowrap">
+        Contactez-nous sur WhatsApp
+      </span>
+    </a>
+  );
+};
+
+export default function App() {
+  const [view, setView] = useState<'home' | 'history'>('home');
+
+  return (
+    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-blue-100 selection:text-blue-900">
+      <Navbar onViewChange={setView} currentView={view} />
+      <main>
+        {view === 'home' ? (
+          <>
+            <Hero />
+            <About />
+            <Services />
+            <SolutionsSection />
+            <WhyChooseUs />
+            <Contact />
+          </>
+        ) : (
+          <HistoryPage onBack={() => setView('home')} />
+        )}
+      </main>
+      <Footer />
+      <CTA_Popup />
+      <WhatsAppButton />
+    </div>
+  );
+}
