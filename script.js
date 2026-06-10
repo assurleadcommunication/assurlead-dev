@@ -68,14 +68,7 @@ const HERO_IMAGES = [
 
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Initial icon creation
     lucide.createIcons();
-    
-    // Re-run after a small delay to ensure everything is rendered
-    setTimeout(() => {
-        lucide.createIcons();
-    }, 100);
-
     initHeroSlider();
     renderServices();
     renderTimeline();
@@ -89,7 +82,6 @@ function showView(viewName) {
     const homeView = document.getElementById('home-view');
     const historyView = document.getElementById('history-view');
     const navbar = document.getElementById('navbar');
-    const topBar = document.getElementById('top-bar');
     const navTitle = document.getElementById('nav-title');
     const navSubtitle = document.getElementById('nav-subtitle');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -98,18 +90,16 @@ function showView(viewName) {
     if (viewName === 'home') {
         homeView.classList.remove('hidden');
         historyView.classList.add('hidden');
-        topBar.classList.remove('hidden');
         window.scrollTo(0, 0);
         updateNavbarStyle(window.scrollY > 20);
     } else {
         homeView.classList.add('hidden');
         historyView.classList.remove('hidden');
-        topBar.classList.add('hidden');
         window.scrollTo(0, 0);
         
         // Always white navbar on history view
-        navbar.classList.add('bg-white', 'shadow-md', 'py-3', 'top-0');
-        navbar.classList.remove('bg-transparent', 'py-6', 'top-8');
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('bg-transparent', 'py-6');
         navTitle.classList.add('text-[#00008F]');
         navTitle.classList.remove('text-white');
         navSubtitle.classList.add('text-gray-500');
@@ -135,16 +125,14 @@ function initNavbar() {
 
 function updateNavbarStyle(scrolled) {
     const navbar = document.getElementById('navbar');
-    const topBar = document.getElementById('top-bar');
     const navTitle = document.getElementById('nav-title');
     const navSubtitle = document.getElementById('nav-subtitle');
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 
     if (scrolled) {
-        navbar.classList.add('bg-white', 'shadow-md', 'py-3', 'top-0');
-        navbar.classList.remove('bg-transparent', 'py-6', 'top-8');
-        topBar.classList.add('-translate-y-full');
+        navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.remove('bg-transparent', 'py-6');
         navTitle.classList.add('text-[#00008F]');
         navTitle.classList.remove('text-white');
         navSubtitle.classList.add('text-gray-500');
@@ -156,9 +144,8 @@ function updateNavbarStyle(scrolled) {
             link.classList.remove('text-white');
         });
     } else {
-        navbar.classList.remove('bg-white', 'shadow-md', 'py-3', 'top-0');
-        navbar.classList.add('bg-transparent', 'py-6', 'top-8');
-        topBar.classList.remove('-translate-y-full');
+        navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+        navbar.classList.add('bg-transparent', 'py-6');
         navTitle.classList.remove('text-[#00008F]');
         navTitle.classList.add('text-white');
         navSubtitle.classList.remove('text-gray-500');
