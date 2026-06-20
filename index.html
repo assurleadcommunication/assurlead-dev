@@ -6,106 +6,11 @@
     <title>Assurances EL OMRANI - Agent Général AXA Casablanca</title>
     <meta name="description" content="Assurances EL OMRANI - Votre partenaire AXA à Casablanca pour l'assurance auto, habitation, santé, prévoyance et professionnelle." />
     
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Lucide Icons UMD CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Configuration Thème Tailwind CDN -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'axa-blue': '#00008F',
-              'axa-red': '#FF0000',
-            },
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            }
-          }
-        }
-      }
-    </script>
-
-    <!-- Styles Personnalisés (Zellige Marocain, Scrollbars & Animations) -->
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-      /* Variables de base */
-      :root {
-          --axa-blue: #00008F;
-          --axa-red: #FF0000;
-          --white: #FFFFFF;
-          --slate-50: #F8FAFC;
-      }
-
-      /* Motif Zellig Marocain Premium d'Octogones Étoilés */
-      .zellig-pattern {
-          background-color: var(--white);
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2300008F' stroke-width='1.2' stroke-opacity='0.08'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3Crect x='-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E");
-          background-repeat: repeat;
-          background-size: 80px 80px;
-      }
-
-      /* Bordure décorative Zellig pour séparer les sections */
-      .zellig-border {
-          position: relative;
-      }
-
-      .zellig-border::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 8px;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 0l5 4 5-4 5 4 5-4 5 4 5-4 5 4 5-4v8H0V0z' fill='%2300008f' fill-opacity='0.1'/%3E%3C/svg%3E");
-          background-repeat: repeat-x;
-      }
-
-      html {
-          scroll-behavior: smooth;
-      }
-
-      body {
-          overflow-x: hidden;
-      }
-
-      /* Transitions fluides d'état (SPA feel) */
-      .page-section {
-          animation: fadeIn 0.5s ease-out;
-      }
-
-      @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-      }
-
-      /* Personnalisation Premium de la barre de défilement */
-      ::-webkit-scrollbar {
-          width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-          background: var(--slate-50);
-      }
-
-      ::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 10px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-          background: var(--axa-blue);
-      }
-
-      /* Boutons actifs */
-      button:active {
-          transform: scale(0.98);
-      }
-    </style>
+    <!-- Link to standard CSS (processed by Vite with Tailwind support) -->
+    <link rel="stylesheet" href="/src/index.css">
   </head>
   <body class="min-h-screen bg-white font-sans text-gray-900 selection:bg-blue-100 selection:text-blue-900">
     
@@ -143,7 +48,7 @@
             <a href="#contact" data-nav="home" data-hash="#contact" class="nav-link-item text-sm font-bold tracking-wide text-white hover:text-blue-200 transition-colors">
               Contact
             </a>
-            <a href="#contact" data-nav="home" data-hash="#contact" class="bg-axa-red hover:bg-red-700 text-white px-8 py-3 font-bold text-sm transition-all uppercase tracking-wider shadow-md">
+            <a href="#contact" data-nav="home" data-hash="#contact" class="bg-[#FF0000] hover:bg-red-700 text-white px-8 py-3 font-bold text-sm transition-all uppercase tracking-wider shadow-md">
               CONTACTEZ-NOUS
             </a>
           </div>
@@ -160,16 +65,16 @@
       <!-- Menu Mobile Déroulant -->
       <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-xl">
         <div class="px-4 pt-2 pb-6 space-y-1">
-          <a href="#" data-nav="home" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-axa-red transition-all no-underline">
+          <a href="#" data-nav="home" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-[#FF0000] transition-all no-underline">
             Accueil
           </a>
-          <a href="#" data-nav="history" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-axa-red transition-all no-underline">
+          <a href="#" data-nav="history" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-[#FF0000] transition-all no-underline">
             Historique
           </a>
-          <a href="#offres" data-nav="home" data-hash="#offres" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-axa-red transition-all no-underline">
+          <a href="#offres" data-nav="home" data-hash="#offres" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-[#FF0000] transition-all no-underline">
             Offres
           </a>
-          <a href="#contact" data-nav="home" data-hash="#contact" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-axa-red transition-all no-underline">
+          <a href="#contact" data-nav="home" data-hash="#contact" class="block w-full text-left px-3 py-4 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-[#FF0000] transition-all no-underline">
             Contact
           </a>
         </div>
@@ -189,19 +94,19 @@
             
             <!-- Slide 1 -->
             <div class="hero-slide absolute inset-0 z-10 transition-all duration-1000 ease-in-out opacity-100 transform scale-100">
-              <div class="absolute inset-0 bg-gradient-to-r from-axa-blue/95 via-axa-blue/70 to-transparent z-10"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-[#00008F]/95 via-[#00008F]/70 to-transparent z-10"></div>
               <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" alt="AXA Bureau Casablanca" class="w-full h-full object-cover" />
             </div>
 
             <!-- Slide 2 -->
             <div class="hero-slide absolute inset-0 z-10 transition-all duration-1000 ease-in-out opacity-0 transform scale-110">
-              <div class="absolute inset-0 bg-gradient-to-r from-axa-blue/95 via-axa-blue/70 to-transparent z-10"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-[#00008F]/95 via-[#00008F]/70 to-transparent z-10"></div>
               <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1920" alt="AXA Devis Finance" class="w-full h-full object-cover" />
             </div>
 
             <!-- Slide 3 -->
             <div class="hero-slide absolute inset-0 z-10 transition-all duration-1000 ease-in-out opacity-0 transform scale-110">
-              <div class="absolute inset-0 bg-gradient-to-r from-axa-blue/95 via-axa-blue/70 to-transparent z-10"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-[#00008F]/95 via-[#00008F]/70 to-transparent z-10"></div>
               <img src="https://images.unsplash.com/photo-1509059852496-f3822ae057bf?auto=format&fit=crop&q=80&w=1920" alt="AXA Equipe Conseil" class="w-full h-full object-cover" />
             </div>
 
@@ -214,7 +119,7 @@
                 
                 <!-- Badge Casablanca -->
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-8">
-                  <div class="w-5 h-5 rounded-full bg-axa-red flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-full bg-[#FF0000] flex items-center justify-center">
                     <i data-lucide="shield-check" class="w-3 h-3 text-white"></i>
                   </div>
                   <span class="text-white text-xs font-bold uppercase tracking-widest">
@@ -232,11 +137,11 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4">
-                  <button id="quote-scroll-btn" class="bg-axa-red hover:bg-red-700 text-white px-10 py-5 font-bold text-lg transition-all flex items-center justify-center gap-3 border-none shadow-xl cursor-pointer">
+                  <button id="quote-scroll-btn" class="bg-[#FF0000] hover:bg-red-700 text-white px-10 py-5 font-bold text-lg transition-all flex items-center justify-center gap-3 border-none shadow-xl cursor-pointer">
                     Obtenir un devis gratuit
                     <i data-lucide="arrow-right" class="w-5 h-5 transition-transform"></i>
                   </button>
-                  <button id="call-me-quick-btn" class="bg-white text-axa-blue hover:bg-gray-100 px-10 py-5 font-bold text-lg transition-all flex items-center justify-center gap-3 border-none shadow-xl cursor-pointer">
+                  <button id="call-me-quick-btn" class="bg-white text-[#00008F] hover:bg-gray-100 px-10 py-5 font-bold text-lg transition-all flex items-center justify-center gap-3 border-none shadow-xl cursor-pointer">
                     <i data-lucide="phone" class="w-5 h-5"></i>
                     Être rappelé
                   </button>
@@ -267,10 +172,10 @@
               <!-- Côté Présentation -->
               <div class="space-y-8">
                 <div>
-                  <p class="text-axa-red font-bold uppercase tracking-[0.2em] text-sm mb-4">
+                  <p class="text-[#FF0000] font-bold uppercase tracking-[0.2em] text-sm mb-4">
                     L'expertise à votre service
                   </p>
-                  <h2 class="text-4xl md:text-5xl font-bold text-axa-blue mb-2 tracking-tight">
+                  <h2 class="text-4xl md:text-5xl font-bold text-[#00008F] mb-2 tracking-tight">
                     Mme. FATIMA EL OMRANI
                   </h2>
                   <p class="text-xl text-gray-500 font-semibold italic">
@@ -284,33 +189,33 @@
                 
                 <div class="space-y-5">
                   <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-axa-red flex items-center justify-center">
-                      <i data-lucide="check" class="w-3.5 h-3.5 text-axa-red"></i>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#FF0000] flex items-center justify-center">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF0000]"></i>
                     </div>
                     <span class="font-bold text-gray-700">Proximité immédiate et écoute active</span>
                   </div>
                   <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-axa-red flex items-center justify-center">
-                      <i data-lucide="check" class="w-3.5 h-3.5 text-axa-red"></i>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#FF0000] flex items-center justify-center">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF0000]"></i>
                     </div>
                     <span class="font-bold text-gray-700">Audits et conseils hautement personnalisés</span>
                   </div>
                   <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-axa-red flex items-center justify-center">
-                      <i data-lucide="check" class="w-3.5 h-3.5 text-axa-red"></i>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#FF0000] flex items-center justify-center">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF0000]"></i>
                     </div>
                     <span class="font-bold text-gray-700">Gestion et règlement diligents des sinistres</span>
                   </div>
                   <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-axa-red flex items-center justify-center">
-                      <i data-lucide="check" class="w-3.5 h-3.5 text-axa-red"></i>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#FF0000] flex items-center justify-center">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-[#FF0000]"></i>
                     </div>
                     <span class="font-bold text-gray-700">Réactivité exemplaire et transparence sans faille</span>
                   </div>
                 </div>
 
                 <div class="pt-6">
-                  <a href="#solutions" class="inline-block px-10 py-3.5 border-2 border-solid border-axa-blue text-axa-blue hover:bg-axa-blue hover:text-white transition-all font-bold uppercase tracking-wider text-sm no-underline rounded-sm">
+                  <a href="#solutions" class="inline-block px-10 py-3.5 border-2 border-solid border-[#00008F] text-[#00008F] hover:bg-[#00008F] hover:text-white transition-all font-bold uppercase tracking-wider text-sm no-underline rounded-sm">
                     Découvrir nos valeurs
                   </a>
                 </div>
@@ -321,7 +226,7 @@
         </section>
 
         <!-- --- SECTION OFFRES (BENTO GRID) --- -->
-        <section id="offres" class="py-24 bg-axa-blue text-white relative overflow-hidden zellig-border">
+        <section id="offres" class="py-24 bg-[#00008F] text-white relative overflow-hidden zellig-border">
           <!-- Motif Traditionnel Marocain Bleu sur Fond Bleu -->
           <div class="absolute inset-0 opacity-[0.16] pointer-events-none z-0 zellig-pattern" style="background-color: transparent;"></div>
 
@@ -339,15 +244,15 @@
               <!-- Carte Large 1: Auto -->
               <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-white/10 group cursor-pointer flex flex-col justify-between md:col-span-2 lg:col-span-3 min-h-[320px]">
                 <div>
-                  <div class="w-14 h-14 bg-blue-50 text-axa-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-axa-blue group-hover:text-white transition-all duration-500">
+                  <div class="w-14 h-14 bg-blue-50 text-[#00008F] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00008F] group-hover:text-white transition-all duration-500">
                     <i data-lucide="car" class="w-7 h-7"></i>
                   </div>
-                  <h3 class="text-2xl font-bold text-axa-blue mb-3 tracking-tight">Assurance Auto</h3>
+                  <h3 class="text-2xl font-bold text-[#00008F] mb-3 tracking-tight">Assurance Auto</h3>
                   <p class="text-gray-500 leading-relaxed mb-6 text-sm md:text-base">
                     Une formule complète et modulaire, assortie d'une assistance réactive 24h/24 et 7j/7 pour rouler en toute sérénité.
                   </p>
                 </div>
-                <div class="flex items-center text-axa-blue font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
+                <div class="flex items-center text-[#00008F] font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
                   En savoir plus <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </div>
               </div>
@@ -355,15 +260,15 @@
               <!-- Carte Large 2: Habitation -->
               <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-white/10 group cursor-pointer flex flex-col justify-between md:col-span-2 lg:col-span-3 min-h-[320px]">
                 <div>
-                  <div class="w-14 h-14 bg-blue-50 text-axa-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-axa-blue group-hover:text-white transition-all duration-500">
+                  <div class="w-14 h-14 bg-blue-50 text-[#00008F] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00008F] group-hover:text-white transition-all duration-500">
                     <i data-lucide="home" class="w-7 h-7"></i>
                   </div>
-                  <h3 class="text-2xl font-bold text-axa-blue mb-3 tracking-tight">Assurance Habitation</h3>
+                  <h3 class="text-2xl font-bold text-[#00008F] mb-3 tracking-tight">Assurance Habitation</h3>
                   <p class="text-gray-500 leading-relaxed mb-6 text-sm md:text-base">
                     Sécurisez efficacement votre patrimoine immobilier et de vos biens précieux contre les incendies, vols et dégâts des eaux.
                   </p>
                 </div>
-                <div class="flex items-center text-axa-blue font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
+                <div class="flex items-center text-[#00008F] font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
                   En savoir plus <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </div>
               </div>
@@ -371,15 +276,15 @@
               <!-- Carte Standard 3: Santé -->
               <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-white/10 group cursor-pointer flex flex-col justify-between md:col-span-2 lg:col-span-2 min-h-[290px]">
                 <div>
-                  <div class="w-14 h-14 bg-blue-50 text-axa-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-axa-blue group-hover:text-white transition-all duration-500">
+                  <div class="w-14 h-14 bg-blue-50 text-[#00008F] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00008F] group-hover:text-white transition-all duration-500">
                     <i data-lucide="heart-pulse" class="w-7 h-7"></i>
                   </div>
-                  <h3 class="text-xl font-bold text-axa-blue mb-2 tracking-tight">Santé Complémentaire</h3>
+                  <h3 class="text-xl font-bold text-[#00008F] mb-2 tracking-tight">Santé Complémentaire</h3>
                   <p class="text-gray-500 leading-relaxed mb-6 text-xs md:text-sm">
                     Une prise en charge moderne et des règlements de soins rapides pour veiller sur vous et votre famille.
                   </p>
                 </div>
-                <div class="flex items-center text-axa-blue font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
+                <div class="flex items-center text-[#00008F] font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
                   Voir l'offre <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </div>
               </div>
@@ -387,15 +292,15 @@
               <!-- Carte Standard 4: Prévoyance -->
               <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-white/10 group cursor-pointer flex flex-col justify-between md:col-span-2 lg:col-span-2 min-h-[290px]">
                 <div>
-                  <div class="w-14 h-14 bg-blue-50 text-axa-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00008F] group-hover:text-white transition-all duration-500">
+                  <div class="w-14 h-14 bg-blue-50 text-[#00008F] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00008F] group-hover:text-white transition-all duration-500">
                     <i data-lucide="shield" class="w-7 h-7"></i>
                   </div>
-                  <h3 class="text-xl font-bold text-axa-blue mb-2 tracking-tight">Prévoyance & Épargne</h3>
+                  <h3 class="text-xl font-bold text-[#00008F] mb-2 tracking-tight">Prévoyance & Épargne</h3>
                   <p class="text-gray-500 leading-relaxed mb-6 text-xs md:text-sm">
                     Garantissez la stabilité financière de vos proches et préparez vos projets capitaux l'esprit tranquille.
                   </p>
                 </div>
-                <div class="flex items-center text-axa-blue font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
+                <div class="flex items-center text-[#00008F] font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
                   Voir l'offre <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </div>
               </div>
@@ -403,15 +308,15 @@
               <!-- Carte Standard 5: Entreprise -->
               <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-white/10 group cursor-pointer flex flex-col justify-between md:col-span-2 lg:col-span-2 min-h-[290px]">
                 <div>
-                  <div class="w-14 h-14 bg-blue-50 text-axa-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-axa-blue group-hover:text-white transition-all duration-500">
+                  <div class="w-14 h-14 bg-blue-50 text-[#00008F] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00008F] group-hover:text-white transition-all duration-500">
                     <i data-lucide="briefcase" class="w-7 h-7"></i>
                   </div>
-                  <h3 class="text-xl font-bold text-axa-blue mb-2 tracking-tight">Multirisque Professionnelle</h3>
+                  <h3 class="text-xl font-bold text-[#00008F] mb-2 tracking-tight">Multirisque Professionnelle</h3>
                   <p class="text-gray-500 leading-relaxed mb-6 text-xs md:text-sm">
                     Des formules sur-mesure pour les commerçants, artisans, PME et professions libérales de Casablanca.
                   </p>
                 </div>
-                <div class="flex items-center text-axa-blue font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
+                <div class="flex items-center text-[#00008F] font-bold text-sm tracking-wide gap-1 group-hover:gap-2 transition-all">
                   Voir l'offre <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </div>
               </div>
@@ -430,7 +335,7 @@
             <!-- Valeurs -->
             <div class="mb-24">
               <div class="text-center mb-16">
-                <h3 class="text-3xl md:text-4xl font-bold text-axa-blue mb-4">Nos Valeurs Fondamentales</h3>
+                <h3 class="text-3xl md:text-4xl font-bold text-[#00008F] mb-4">Nos Valeurs Fondamentales</h3>
                 <p class="text-gray-500 text-lg">Ce qui rassemble nos collaborateurs et guide nos actions.</p>
               </div>
 
@@ -438,10 +343,10 @@
                 
                 <!-- Card 1 -->
                 <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                  <div class="w-12 h-12 bg-red-100 text-axa-red rounded-xl flex items-center justify-center mb-6 group-hover:bg-axa-red group-hover:text-white transition-all duration-300">
+                  <div class="w-12 h-12 bg-red-100 text-[#FF0000] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#FF0000] group-hover:text-white transition-all duration-300">
                     <i data-lucide="heart" class="w-6 h-6"></i>
                   </div>
-                  <h4 class="text-xl font-bold text-axa-blue mb-3">Customer First</h4>
+                  <h4 class="text-xl font-bold text-[#00008F] mb-3">Customer First</h4>
                   <p class="text-gray-600 text-sm leading-relaxed">
                     Toutes nos préconisations sont déterminées exclusivement par la satisfaction et l'intérêt supérieur de nos assurés.
                   </p>
@@ -449,10 +354,10 @@
 
                 <!-- Card 2 -->
                 <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                  <div class="w-12 h-12 bg-red-100 text-axa-red rounded-xl flex items-center justify-center mb-6 group-hover:bg-axa-red group-hover:text-white transition-all duration-300">
+                  <div class="w-12 h-12 bg-red-100 text-[#FF0000] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#FF0000] group-hover:text-white transition-all duration-300">
                     <i data-lucide="shield" class="w-6 h-6"></i>
                   </div>
-                  <h4 class="text-xl font-bold text-axa-blue mb-3">Intégrité</h4>
+                  <h4 class="text-xl font-bold text-[#00008F] mb-3">Intégrité</h4>
                   <p class="text-gray-600 text-sm leading-relaxed">
                     Nous conseillons avec une franchise absolue et assurons une transparence contractuelle constante.
                   </p>
@@ -460,21 +365,21 @@
 
                 <!-- Card 3 -->
                 <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                  <div class="w-12 h-12 bg-red-100 text-axa-red rounded-xl flex items-center justify-center mb-6 group-hover:bg-axa-red group-hover:text-white transition-all duration-300">
+                  <div class="w-12 h-12 bg-red-100 text-[#FF0000] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#FF0000] group-hover:text-white transition-all duration-300">
                     <i data-lucide="target" class="w-6 h-6"></i>
                   </div>
-                  <h4 class="text-xl font-bold text-axa-blue mb-3">Courage</h4>
-                  <p class="text-gray-650 text-sm leading-relaxed">
+                  <h4 class="text-xl font-bold text-[#00008F] mb-3">Courage</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
                     Nous osons agir et innover sans cesse afin de proposer les meilleures garanties de couverture du marché.
                   </p>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                  <div class="w-12 h-12 bg-red-100 text-axa-red rounded-xl flex items-center justify-center mb-6 group-hover:bg-axa-red group-hover:text-white transition-all duration-300">
+                  <div class="w-12 h-12 bg-red-100 text-[#FF0000] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#FF0000] group-hover:text-white transition-all duration-300">
                     <i data-lucide="award" class="w-6 h-6"></i>
                   </div>
-                  <h4 class="text-xl font-bold text-axa-blue mb-3">One AXA</h4>
+                  <h4 class="text-xl font-bold text-[#00008F] mb-3">One AXA</h4>
                   <p class="text-gray-600 text-sm leading-relaxed">
                     Un réseau uni associant la force d'un leader international à la prévenance et la réassurance de notre agence locale.
                   </p>
@@ -485,15 +390,15 @@
 
             <!-- Bloc d'Appel Global à l'Action -->
             <div class="text-center bg-white p-12 rounded-[3rem] shadow-xl border border-gray-100">
-              <h3 class="text-3.5xl font-bold text-axa-blue mb-6 tracking-tight">Prêt à bénéficier d'un conseil d'expert ?</h3>
+              <h3 class="text-3.5xl font-bold text-[#00008F] mb-6 tracking-tight">Prêt à bénéficier d'un conseil d'expert ?</h3>
               <p class="text-gray-600 mb-10 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
                 Qu'il s'agisse de souscrire une assurance, de restructurer vos contrats pros ou de maximiser votre protection, faites confiance à AXA Assurance.
               </p>
               <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" data-nav="home" data-hash="#contact" class="bg-axa-blue text-white px-10 py-4 rounded-full font-bold hover:bg-blue-800 transition-all shadow-lg hover:no-underline tracking-wider text-sm uppercase">
+                <a href="#contact" data-nav="home" data-hash="#contact" class="bg-[#00008F] text-white px-10 py-4 rounded-full font-bold hover:bg-blue-800 transition-all shadow-lg hover:no-underline tracking-wider text-sm uppercase">
                   Demander un devis gratuit
                 </a>
-                <a href="#offres" data-nav="home" data-hash="#offres" class="bg-white text-axa-blue border-2 border-solid border-axa-blue px-10 py-4 rounded-full font-bold hover:bg-axa-blue hover:text-white transition-all hover:no-underline tracking-wider text-sm uppercase">
+                <a href="#offres" data-nav="home" data-hash="#offres" class="bg-white text-[#00008F] border-2 border-solid border-[#00008F] px-10 py-4 rounded-full font-bold hover:bg-[#00008F] hover:text-white transition-all hover:no-underline tracking-wider text-sm uppercase">
                   Voir nos solutions
                 </a>
               </div>
@@ -503,7 +408,7 @@
         </section>
 
         <!-- --- SECTION "POURQUOI NOUS CHOISIR" (TESTIMONIAL) --- -->
-        <section class="py-24 bg-axa-blue text-white overflow-hidden relative">
+        <section class="py-24 bg-[#00008F] text-white overflow-hidden relative">
           <!-- Blobs Décoratifs -->
           <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-[120px]"></div>
           <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red-600/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-[120px]"></div>
@@ -514,7 +419,7 @@
               <!-- Points forts -->
               <div class="space-y-12">
                 <div>
-                  <p class="text-axa-red font-bold uppercase tracking-[0.2em] text-sm mb-4">
+                  <p class="text-[#FF0000] font-bold uppercase tracking-[0.2em] text-sm mb-4">
                     POURQUOI NOUS CHOISIR ?
                   </p>
                   <h2 class="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
@@ -527,7 +432,7 @@
                   
                   <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
                     <div class="flex items-center gap-3 mb-4">
-                      <div class="w-2 h-2 rounded-full bg-axa-red shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
+                      <div class="w-2 h-2 rounded-full bg-[#FF0000] shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
                       <h3 class="text-lg font-bold tracking-tight">Conseils Personnalisés</h3>
                     </div>
                     <p class="text-blue-100/70 leading-relaxed text-sm">
@@ -535,9 +440,9 @@
                     </p>
                   </div>
 
-                  <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-353 group">
+                  <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
                     <div class="flex items-center gap-3 mb-4">
-                      <div class="w-2 h-2 rounded-full bg-axa-red shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
+                      <div class="w-2 h-2 rounded-full bg-[#FF0000] shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
                       <h3 class="text-lg font-bold tracking-tight">Solidité d'AXA</h3>
                     </div>
                     <p class="text-blue-100/70 leading-relaxed text-sm">
@@ -545,9 +450,9 @@
                     </p>
                   </div>
 
-                  <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-353 group">
+                  <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
                     <div class="flex items-center gap-3 mb-4">
-                      <div class="w-2 h-2 rounded-full bg-axa-red shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
+                      <div class="w-2 h-2 rounded-full bg-[#FF0000] shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
                       <h3 class="text-lg font-bold tracking-tight">Règlement Rapide</h3>
                     </div>
                     <p class="text-blue-100/70 leading-relaxed text-sm">
@@ -555,9 +460,9 @@
                     </p>
                   </div>
 
-                  <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-353 group">
+                  <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
                     <div class="flex items-center gap-3 mb-4">
-                      <div class="w-2 h-2 rounded-full bg-axa-red shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
+                      <div class="w-2 h-2 rounded-full bg-[#FF0000] shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
                       <h3 class="text-lg font-bold tracking-tight">Cabinet à Casablanca</h3>
                     </div>
                     <p class="text-blue-100/70 leading-relaxed text-sm">
@@ -571,7 +476,7 @@
               <!-- Témoignage prestigieux -->
               <div class="relative">
                 <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-10 md:p-14 rounded-[3rem] relative z-10">
-                  <div class="text-axa-red mb-8 opacity-90">
+                  <div class="text-[#FF0000] mb-8 opacity-90">
                     <!-- Icone de Citation -->
                     <svg width="40" height="30" viewBox="0 0 48 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.7143 0L20.5714 6.85714V20.5714H0V0H13.7143ZM41.1429 0L48 6.85714V20.5714H27.4286V0H41.1429Z" transform="translate(0 8)" />
@@ -579,11 +484,11 @@
                   </div>
                   
                   <p class="text-xl md:text-2xl font-light leading-relaxed mb-12 italic text-white/95">
-                    "Un service d'assistance exceptionnel et des conseillers d'une grande expertise. Mme Fatima EL OMRANI ha su parfaitement cerner les garanties requises pour le parc de véhicules de mon entreprise."
+                    "Un service d'assistance exceptionnel et des conseillers d'une grande expertise. Mme Fatima EL OMRANI a su parfaitement cerner les garanties requises pour le parc de véhicules de mon entreprise."
                   </p>
 
                   <div class="flex items-center gap-5">
-                    <div class="w-14 h-14 bg-axa-red rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                    <div class="w-14 h-14 bg-[#FF0000] rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
                       M
                     </div>
                     <div>
@@ -593,7 +498,7 @@
                   </div>
                 </div>
                 
-                <!-- Effet de halo -->
+                <!-- Effet lumineux -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 rounded-full blur-[120px] -z-0"></div>
               </div>
 
@@ -609,7 +514,7 @@
               <!-- Côté Coordonnées -->
               <div class="space-y-12">
                 <div>
-                  <h2 class="text-4xl md:text-5xl font-bold text-axa-blue mb-6 leading-tight tracking-tight">
+                  <h2 class="text-4xl md:text-5xl font-bold text-[#00008F] mb-6 leading-tight tracking-tight">
                     Prêt à être mieux<br />protégé ?
                   </h2>
                   <p class="text-gray-600 text-lg leading-relaxed max-w-md">
@@ -622,10 +527,10 @@
                   <!-- Adresse -->
                   <div class="flex items-center gap-6 group">
                     <div class="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-                      <i data-lucide="map-pin" class="w-6 h-6 text-axa-blue"></i>
+                      <i data-lucide="map-pin" class="w-6 h-6 text-[#00008F]"></i>
                     </div>
                     <div>
-                      <p class="font-bold text-axa-blue text-lg">Notre Agence</p>
+                      <p class="font-bold text-[#00008F] text-lg">Notre Agence</p>
                       <p class="text-gray-500 text-sm">108 Bd Ali Yaâta, Casablanca 20250, Maroc</p>
                     </div>
                   </div>
@@ -633,10 +538,10 @@
                   <!-- Téléphone -->
                   <div class="flex items-center gap-6 group">
                     <div class="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-                      <i data-lucide="phone" class="w-6 h-6 text-axa-blue"></i>
+                      <i data-lucide="phone" class="w-6 h-6 text-[#00008F]"></i>
                     </div>
                     <div>
-                      <p class="font-bold text-axa-blue text-lg">Ligne Directe</p>
+                      <p class="font-bold text-[#00008F] text-lg">Ligne Directe</p>
                       <p class="text-gray-500 text-sm">05 22 66 59 08 / 05 22 66 59 09</p>
                     </div>
                   </div>
@@ -644,10 +549,10 @@
                   <!-- Email -->
                   <div class="flex items-center gap-6 group">
                     <div class="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-                      <i data-lucide="mail" class="w-6 h-6 text-axa-blue"></i>
+                      <i data-lucide="mail" class="w-6 h-6 text-[#00008F]"></i>
                     </div>
                     <div>
-                      <p class="font-bold text-axa-blue text-lg">Adresse E-mail</p>
+                      <p class="font-bold text-[#00008F] text-lg">Adresse E-mail</p>
                       <p class="text-gray-500 text-sm">contact@axa-elomrani.ma</p>
                     </div>
                   </div>
@@ -661,29 +566,29 @@
                   
                   <div class="grid md:grid-cols-2 gap-6">
                     <div class="space-y-2">
-                      <label class="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">Nom Complet</label>
+                      <label class="block text-[10px] font-bold text-[#00008F] uppercase tracking-[0.2em]">Nom Complet</label>
                       <input 
                         type="text" 
                         required
                         placeholder="Votre nom" 
-                        class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400 text-sm" 
+                        class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-[#00008F] focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400 text-sm" 
                       />
                     </div>
                     <div class="space-y-2">
-                      <label class="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">Numéro Téléphone</label>
+                      <label class="block text-[10px] font-bold text-[#00008F] uppercase tracking-[0.2em]">Numéro Téléphone</label>
                       <input 
                         type="tel" 
                         required
                         placeholder="Votre numéro de mobile" 
-                        class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400 text-sm" 
+                        class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-[#00008F] focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400 text-sm" 
                       />
                     </div>
                   </div>
 
                   <div class="space-y-2">
-                    <label class="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">Type d'Assurance souhaité</label>
+                    <label class="block text-[10px] font-bold text-[#00008F] uppercase tracking-[0.2em]">Type d'Assurance souhaité</label>
                     <div class="relative">
-                      <select class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all appearance-none cursor-pointer text-gray-700 text-sm">
+                      <select class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-[#00008F] focus:ring-2 focus:ring-blue-100 outline-none transition-all appearance-none cursor-pointer text-gray-700 text-sm">
                         <option>Automobile</option>
                         <option>Habitation</option>
                         <option>Complémentaire Santé</option>
@@ -697,15 +602,15 @@
                   </div>
 
                   <div class="space-y-2">
-                    <label class="block text-[10px] font-bold text-axa-blue uppercase tracking-[0.2em]">Détails complémentaires / Message</label>
+                    <label class="block text-[10px] font-bold text-[#00008F] uppercase tracking-[0.2em]">Détails complémentaires / Message</label>
                     <textarea 
                       placeholder="Indiquez vos besoins (ex: puissance auto, surface maison, nombre d'employés...)" 
                       rows="4" 
-                      class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-axa-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400 text-sm resize-none"
+                      class="w-full px-6 py-4 rounded-xl border border-solid border-gray-200 bg-gray-50/50 focus:border-[#00008F] focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-gray-400 text-sm resize-none"
                     ></textarea>
                   </div>
 
-                  <button type="submit" class="w-full bg-axa-red hover:bg-red-700 text-white py-5 rounded-xl font-bold text-lg border-none shadow-xl cursor-pointer">
+                  <button type="submit" class="w-full bg-[#FF0000] hover:bg-red-700 text-white py-5 rounded-xl font-bold text-lg border-none shadow-xl cursor-pointer">
                     Calculer mon tarif & obtenir un devis
                   </button>
                 </form>
@@ -725,15 +630,15 @@
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Lien Retour -->
-            <button id="back-to-home-btn" class="flex items-center gap-2 text-axa-blue hover:text-axa-red font-bold mb-12 hover:no-underline transition-colors group cursor-pointer bg-transparent border-none p-0">
+            <button id="back-to-home-btn" class="flex items-center gap-2 text-[#00008F] hover:text-[#FF0000] font-bold mb-12 hover:no-underline transition-colors group cursor-pointer bg-transparent border-none p-0">
               <i data-lucide="x" class="w-5 h-5 group-hover:rotate-90 transition-transform"></i>
               Retour à l'accueil
             </button>
 
             <!-- Titre Principal -->
             <div class="text-center mb-20">
-              <p class="text-axa-red font-bold uppercase tracking-[0.2em] text-sm mb-4">NOTRE HISTOIRE</p>
-              <h2 class="text-4xl md:text-6xl font-bold text-axa-blue tracking-tight mb-6">
+              <p class="text-[#FF0000] font-bold uppercase tracking-[0.2em] text-sm mb-4">NOTRE HISTOIRE</p>
+              <h2 class="text-4xl md:text-6xl font-bold text-[#00008F] tracking-tight mb-6">
                 Deux siècles d'excellence<br />et d'assurance mondiale
               </h2>
               <p class="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">
@@ -753,15 +658,15 @@
                 <div class="flex flex-col lg:flex-row items-center">
                   <div class="w-full lg:w-1/2 px-4 lg:px-12">
                     <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-solid border-gray-100 text-left group hover:shadow-xl transition-all duration-500">
-                      <span class="text-axa-red font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">1817</span>
-                      <h4 class="text-2xl font-bold text-axa-blue mb-4">Les Origines</h4>
+                      <span class="text-[#FF0000] font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">1817</span>
+                      <h4 class="text-2xl font-bold text-[#00008F] mb-4">Les Origines</h4>
                       <p class="text-gray-600 leading-relaxed text-base">
                         Création de la Mutuelle de L'Assurance contre L'Incendie (Ancienne Mutuelle de Rouen), posant ainsi la toute première pierre angulaire de notre groupe.
                       </p>
                     </div>
                   </div>
                   <!-- Pastille -->
-                  <div class="w-14 h-14 bg-axa-blue rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
+                  <div class="w-14 h-14 bg-[#00008F] rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
                     <i data-lucide="zap" class="w-5 h-5 text-white"></i>
                   </div>
                   <div class="hidden lg:block lg:w-1/2"></div>
@@ -771,15 +676,15 @@
                 <div class="flex flex-col lg:flex-row-reverse items-center">
                   <div class="w-full lg:w-1/2 px-4 lg:px-12">
                     <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-solid border-gray-100 text-left group hover:shadow-xl transition-all duration-500 lg:text-left">
-                      <span class="text-axa-red font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">1985</span>
-                      <h4 class="text-2xl font-bold text-axa-blue mb-4">Naissance de la Marque AXA</h4>
+                      <span class="text-[#FF0000] font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">1985</span>
+                      <h4 class="text-2xl font-bold text-[#00008F] mb-4">Naissance de la Marque AXA</h4>
                       <p class="text-gray-600 leading-relaxed text-base">
                         Sous l'égide de Claude Bébéar, le groupe adopte la marque "AXA". Ce nom dynamique et court est spécialement conçu pour propulser l'expansion internationale du groupe dans toutes les langues du globe.
                       </p>
                     </div>
                   </div>
                   <!-- Pastille -->
-                  <div class="w-14 h-14 bg-axa-blue rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
+                  <div class="w-14 h-14 bg-[#00008F] rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
                     <i data-lucide="zap" class="w-5 h-5 text-white"></i>
                   </div>
                   <div class="hidden lg:block lg:w-1/2"></div>
@@ -789,15 +694,15 @@
                 <div class="flex flex-col lg:flex-row items-center">
                   <div class="w-full lg:w-1/2 px-4 lg:px-12">
                     <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-solid border-gray-100 text-left group hover:shadow-xl transition-all duration-500">
-                      <span class="text-axa-red font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">1996</span>
-                      <h4 class="text-2xl font-bold text-axa-blue mb-4">La consolidation majeure</h4>
+                      <span class="text-[#FF0000] font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">1996</span>
+                      <h4 class="text-2xl font-bold text-[#00008F] mb-4">La consolidation majeure</h4>
                       <p class="text-gray-600 leading-relaxed text-base">
                         Acquisition structurante de l'UAP. En doublant instantanément l'envergure du groupe, cette fusion majeure propulse AXA au rang de leader de l'assurance en Europe et dans le monde.
                       </p>
                     </div>
                   </div>
                   <!-- Pastille -->
-                  <div class="w-14 h-14 bg-axa-blue rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
+                  <div class="w-14 h-14 bg-[#00008F] rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
                     <i data-lucide="zap" class="w-5 h-5 text-white"></i>
                   </div>
                   <div class="hidden lg:block lg:w-1/2"></div>
@@ -807,15 +712,15 @@
                 <div class="flex flex-col lg:flex-row-reverse items-center">
                   <div class="w-full lg:w-1/2 px-4 lg:px-12">
                     <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-solid border-gray-100 text-left group hover:shadow-xl transition-all duration-500">
-                      <span class="text-axa-red font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">2000</span>
-                      <h4 class="text-2xl font-bold text-axa-blue mb-4">Développement de la Gestion d'Actifs</h4>
+                      <span class="text-[#FF0000] font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">2000</span>
+                      <h4 class="text-2xl font-bold text-[#00008F] mb-4">Développement de la Gestion d'Actifs</h4>
                       <p class="text-gray-600 leading-relaxed text-base">
                         Acquisition de Sanford C. Bernstein aux États-Unis, consolidant la force du Groupe dans la banque d'investissement et la gestion de fonds d'actifs mondiaux (AllianceBernstein).
                       </p>
                     </div>
                   </div>
                   <!-- Pastille -->
-                  <div class="w-14 h-14 bg-axa-blue rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
+                  <div class="w-14 h-14 bg-[#00008F] rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
                     <i data-lucide="zap" class="w-5 h-5 text-white"></i>
                   </div>
                   <div class="hidden lg:block lg:w-1/2"></div>
@@ -825,15 +730,15 @@
                 <div class="flex flex-col lg:flex-row items-center">
                   <div class="w-full lg:w-1/2 px-4 lg:px-12">
                     <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-solid border-gray-100 text-left group hover:shadow-xl transition-all duration-500">
-                      <span class="text-axa-red font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">2016</span>
-                      <h4 class="text-2xl font-bold text-axa-blue mb-4">Transformation Digitale et Santé</h4>
+                      <span class="text-[#FF0000] font-black text-5xl mb-4 block opacity-20 group-hover:opacity-100 transition-opacity duration-500">2016</span>
+                      <h4 class="text-2xl font-bold text-[#00008F] mb-4">Transformation Digitale et Santé</h4>
                       <p class="text-gray-600 leading-relaxed text-base">
                         Lancement d'une ambition technologique majeure pour devenir un partenaire global au quotidien, notamment par le biais des services de télémédecine et des assurances technologiques de santé.
                       </p>
                     </div>
                   </div>
                   <!-- Pastille -->
-                  <div class="w-14 h-14 bg-axa-blue rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
+                  <div class="w-14 h-14 bg-[#00008F] rounded-full border-4 border-solid border-white shadow-xl z-10 flex items-center justify-center my-4 lg:my-0">
                     <i data-lucide="zap" class="w-5 h-5 text-white"></i>
                   </div>
                   <div class="hidden lg:block lg:w-1/2"></div>
@@ -843,7 +748,7 @@
             </div>
 
             <!-- Bloc AXA Maroc -->
-            <div class="bg-axa-blue rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden">
+            <div class="bg-[#00008F] rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden">
               <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
               <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10">
                 <div>
@@ -884,7 +789,7 @@
               </div>
               <div class="flex flex-col">
                 <span class="font-bold text-2xl tracking-tighter text-white">
-                  AXA <span class="text-axa-red">EL OMRANI</span>
+                  AXA <span class="text-[#FF0000]">EL OMRANI</span>
                 </span>
                 <span class="text-[10px] uppercase tracking-widest font-semibold text-gray-400">
                   Agent Général Casablanca
@@ -895,13 +800,13 @@
               Votre agence AXA de confiance à Casablanca, prête à vous accompagner pour l'étude et la gestion optimale de l'intégralité de vos polices d'assurances.
             </p>
             <div class="flex space-x-4">
-              <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue text-white hover:text-white transition-colors">
+              <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#00008F] text-white hover:text-white transition-colors">
                 <i data-lucide="facebook" class="w-5 h-5"></i>
               </a>
-              <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue text-white hover:text-white transition-colors">
+              <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#00008F] text-white hover:text-white transition-colors">
                 <i data-lucide="instagram" class="w-5 h-5"></i>
               </a>
-              <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue text-white hover:text-white transition-colors">
+              <a href="#" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#00008F] text-white hover:text-white transition-colors">
                 <i data-lucide="linkedin" class="w-5 h-5"></i>
               </a>
             </div>
@@ -975,7 +880,7 @@
             <button id="callback-request-btn" class="w-full bg-[#00008F] text-white py-5 rounded-2xl font-bold text-base shadow-lg hover:bg-blue-800 transition-all border-none cursor-pointer">
               Être rappelé gratuitement
             </button>
-            <button class="close-cta w-full text-gray-450 font-bold text-xs uppercase tracking-widest bg-transparent border-none cursor-pointer py-2 hover:text-gray-750">
+            <button class="close-cta w-full text-gray-450 font-bold text-xs uppercase tracking-widest bg-transparent border-none cursor-pointer py-2 hover:text-gray-700">
               Plus tard
             </button>
           </div>
@@ -984,226 +889,7 @@
       </div>
     </div>
 
-    <!-- Vanilla Javascript load -->
-    <script>
-      /**
-       * AXA Assurances EL OMRANI - Application Premium
-       * Scripts embarqués pour un fonctionnement optimal hors-ligne/direct
-       */
-      document.addEventListener('DOMContentLoaded', () => {
-          // Initialisation des icônes Lucide
-          if (typeof lucide !== 'undefined') {
-              lucide.createIcons();
-          }
-
-          // --- VARIABLES D'ÉTAT GLOBALES ---
-          let currentView = 'home';
-          let currentSlide = 0;
-          const slideIntervalTime = 5000;
-
-          // --- SÉLECTEURS ---
-          const hView = document.getElementById('home-view');
-          const histView = document.getElementById('history-view');
-          const navbar = document.getElementById('main-navbar');
-          const mobileMenu = document.getElementById('mobile-menu');
-          const menuBtn = document.getElementById('mobile-menu-btn');
-          const ctaPopup = document.getElementById('cta-popup');
-          
-          // --- NAVIGATION ---
-          function setView(viewName) {
-              currentView = viewName;
-              if (viewName === 'home') {
-                  hView.classList.remove('hidden');
-                  histView.classList.add('hidden');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-              } else if (viewName === 'history') {
-                  hView.classList.add('hidden');
-                  histView.classList.remove('hidden');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-              updateNavbarStyle();
-          }
-
-          document.querySelectorAll('[data-nav]').forEach(btn => {
-              btn.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  const targetView = btn.getAttribute('data-nav');
-                  const targetHash = btn.getAttribute('data-hash');
-                  
-                  if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                      mobileMenu.classList.add('hidden');
-                  }
-
-                  if (targetView) {
-                      setView(targetView);
-                  }
-
-                  if (targetHash) {
-                      if (currentView !== 'home') {
-                          setView('home');
-                      }
-                      setTimeout(() => {
-                          const el = document.querySelector(targetHash);
-                          if (el) {
-                              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                          }
-                      }, currentView === 'home' ? 0 : 250);
-                  }
-              });
-          });
-
-          const backToHomeBtn = document.getElementById('back-to-home-btn');
-          if (backToHomeBtn) {
-              backToHomeBtn.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  setView('home');
-              });
-          }
-
-          // --- STYLE DE LA NAVBAR ---
-          function updateNavbarStyle() {
-              const scrolled = window.scrollY > 20;
-              const navTitle = navbar.querySelector('.nav-title');
-              const navSub = navbar.querySelector('.nav-sub');
-              const navLinks = navbar.querySelectorAll('.nav-link-item');
-              const logoSec = navbar.querySelector('.logo-sec');
-
-              if (scrolled || currentView === 'history') {
-                  navbar.classList.remove('bg-transparent', 'py-6');
-                  navbar.classList.add('bg-white', 'shadow-md', 'py-3');
-                  
-                  navTitle.classList.remove('text-white');
-                  navTitle.classList.add('text-axa-blue');
-                  
-                  navSub.classList.remove('text-blue-100/80');
-                  navSub.classList.add('text-gray-500');
-
-                  navLinks.forEach(link => {
-                      link.classList.remove('text-white', 'hover:text-blue-200');
-                      link.classList.add('text-gray-700', 'hover:text-axa-red');
-                  });
-
-                  if (menuBtn) {
-                      menuBtn.classList.remove('text-white');
-                      menuBtn.classList.add('text-gray-900');
-                  }
-              } else {
-                  navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
-                  navbar.classList.add('bg-transparent', 'py-6');
-                  
-                  navTitle.classList.remove('text-axa-blue');
-                  navTitle.classList.add('text-white');
-                  
-                  navSub.classList.remove('text-gray-500');
-                  navSub.classList.add('text-blue-100/80');
-
-                  navLinks.forEach(link => {
-                      link.classList.remove('text-gray-700', 'hover:text-axa-red');
-                      link.classList.add('text-white', 'hover:text-blue-200');
-                  });
-
-                  if (menuBtn) {
-                      menuBtn.classList.remove('text-gray-900');
-                      menuBtn.classList.add('text-white');
-                  }
-              }
-          }
-
-          window.addEventListener('scroll', updateNavbarStyle);
-          updateNavbarStyle();
-
-          if (menuBtn && mobileMenu) {
-              menuBtn.addEventListener('click', () => {
-                  mobileMenu.classList.toggle('hidden');
-              });
-          }
-
-          // --- CARROUSEL ---
-          const slides = document.querySelectorAll('.hero-slide');
-          if (slides.length > 0) {
-              function showSlide(index) {
-                  slides.forEach((slide, i) => {
-                      if (i === index) {
-                          slide.classList.remove('opacity-0', 'scale-110');
-                          slide.classList.add('opacity-100', 'scale-100');
-                      } else {
-                          slide.classList.remove('opacity-100', 'scale-100');
-                          slide.classList.add('opacity-0', 'scale-110');
-                      }
-                  });
-              }
-
-              function nextSlide() {
-                  currentSlide = (currentSlide + 1) % slides.length;
-                  showSlide(currentSlide);
-              }
-
-              let timer = setInterval(nextSlide, slideIntervalTime);
-              showSlide(0);
-          }
-
-          // --- CTA AUTOMATIQUE POPUP ---
-          setTimeout(() => {
-              if (ctaPopup) {
-                  ctaPopup.classList.remove('hidden');
-                  ctaPopup.classList.add('flex');
-              }
-          }, 5000);
-
-          const closeBtn = document.querySelectorAll('.close-cta');
-          closeBtn.forEach(btn => {
-              btn.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  if (ctaPopup) {
-                      ctaPopup.classList.add('hidden');
-                      ctaPopup.classList.remove('flex');
-                  }
-              });
-          });
-
-          const reqBtn = document.getElementById('callback-request-btn');
-          if (reqBtn) {
-              reqBtn.addEventListener('click', () => {
-                  alert("Votre demande de rappel gratuit a bien été enregistrée. Un conseiller d'Assurances EL OMRANI vous contactera très rapidement.");
-                  if (ctaPopup) {
-                      ctaPopup.classList.add('hidden');
-                  }
-              });
-          }
-
-          // --- LEVIER CTA BOUTONS ACCUEIL ---
-          const heroQuoteBtn = document.getElementById('quote-scroll-btn');
-          if (heroQuoteBtn) {
-              heroQuoteBtn.addEventListener('click', () => {
-                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-              });
-          }
-
-          const callMeBtn = document.getElementById('call-me-quick-btn');
-          if (callMeBtn) {
-              callMeBtn.addEventListener('click', () => {
-                  if (ctaPopup) {
-                      ctaPopup.classList.remove('hidden');
-                      ctaPopup.classList.add('flex');
-                  }
-              });
-          }
-
-          // --- FORMULAIRE ---
-          const form = document.getElementById('contact-form');
-          if (form) {
-              form.addEventListener('submit', (e) => {
-                  e.preventDefault();
-                  const name = form.querySelector('input[type="text"]').value;
-                  const phone = form.querySelector('input[type="tel"]').value;
-                  const filter = form.querySelector('select').value;
-                  alert(`Félicitations, ${name} !\n\nVotre demande de tarification d'assurance [ ${filter} ] a bien été transmise à notre cabinet.\nUn conseiller prendra contact avec vous au ${phone} dans les plus brefs délais.`);
-                  form.reset();
-              });
-          }
-      });
-    </script>
+    <!-- Vanilla Javascript module load -->
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-
-
