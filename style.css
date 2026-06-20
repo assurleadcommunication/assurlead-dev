@@ -6,13 +6,14 @@
   --color-axa-blue: #00008F;
   --color-axa-red: #FF0000;
 }
+/* Motif Zellige Marocain Premium - Style Capture */
+.zellig-pattern {
+    background-color: #ffffff;
 
-/* Variables de marque AXA */
-:root {
-    --axa-blue: #00008F;
-    --axa-red: #FF0000;
-    --white: #FFFFFF;
-    --slate-50: #F8FAFC;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23b9b8d1' stroke-width='1' stroke-opacity='0.35'%3E%3Cpath d='M60 15 L70 45 L100 30 L85 60 L115 60 L85 75 L100 105 L70 90 L60 120 L50 90 L20 105 L35 75 L5 60 L35 60 L20 30 L50 45 Z'/%3E%3Crect x='18' y='18' width='84' height='84'/%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-repeat: repeat;
+    background-size: 120px 120px;
 }
 
 /* Motif Zellig Marocain Premium d'Octogones Étoilés */
@@ -38,7 +39,29 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 0l5 4 5-4 5 4 5-4 5 4 5-4 5 4 5-4v8H0V0z' fill='%2300008f' fill-opacity='0.1'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
 }
+.hero-section {
+    position: relative;
+    background: #ffffff;
+}
 
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23c7c5d8' stroke-width='1' stroke-opacity='0.28'%3E%3Cpath d='M60 15 L70 45 L100 30 L85 60 L115 60 L85 75 L100 105 L70 90 L60 120 L50 90 L20 105 L35 75 L5 60 L35 60 L20 30 L50 45 Z'/%3E%3Crect x='18' y='18' width='84' height='84'/%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-repeat: repeat;
+    background-size: 120px 120px;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -57,7 +80,18 @@
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+h1 {
+   color: #00008F;
+   font-weight: 800;
+   letter-spacing: -2px;
+}
 
+.subtitle {
+   color: #FF0000;
+   letter-spacing: 6px;
+   font-weight: 700;
+   text-transform: uppercase;
+}
 /* Popup CTA - Style et Animation */
 #cta-popup {
     transition: all 0.3s ease-in-out;
