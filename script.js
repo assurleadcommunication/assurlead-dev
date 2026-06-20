@@ -18,6 +18,9 @@ const SERVICES = [
         description: 'Des remboursements rapides et une couverture adaptée à vos besoins médicaux.',
         icon: 'heart-pulse'
     },
+    <section className="hero-section min-h-screen">
+   ...
+</section>
     {
         id: 'prevoyance',
         title: 'Prévoyance',
